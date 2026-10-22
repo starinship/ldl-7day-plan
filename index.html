@@ -282,6 +282,16 @@
   .rf-out .box{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:12px}
   .lvl{font-weight:700}
   .lvl.ok{color:var(--good)} .lvl.mid{color:var(--warn)} .lvl.hi{color:var(--danger)}
+
+  .howto{display:grid;gap:12px;margin:12px 0}
+  .howto-card{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:14px}
+  .howto-card h3{margin:0 0 8px;font-size:1.02rem;color:var(--primary)}
+  .howto-card ol,.howto-card ul{margin:6px 0;padding-left:1.25em}
+  .howto-card li{margin:4px 0}
+  .safe{background:var(--danger-soft);border-left:4px solid var(--danger);border-radius:10px;padding:10px 12px;font-size:0.9rem;margin-top:12px}
+  .ex-steps{margin:8px 0 0;padding-left:1.2em;font-size:0.92rem}
+  .ex-steps li{margin:5px 0}
+  .ex .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:0.78rem;padding:2px 8px;border-radius:999px;margin-left:6px}
 </style>
 </head>
 <body>
@@ -386,27 +396,73 @@
   </section>
 
   <section class="card" id="exercise">
-    <h2>④ 運動總覽（目標 ≥150 分鐘／週）</h2>
+    <h2>④ 運動總覽（教你怎麼做）</h2>
+    <p style="margin-top:0">本週目標約 <strong>150–180 分鐘</strong>中等強度活動。關鍵不是「去運動」，而是<strong>每一步怎麼做</strong>。下面用「邊走邊說話測試：能講完整句但唱不出歌」來判斷強度是否剛好。</p>
+
+    <h3>怎樣判斷「中等強度」</h3>
     <ul class="clean">
-      <li>中等強度有氧：快走、缓跑、踏單車、游泳；說話尚可、但不應輕鬆唱歌。</li>
-      <li>本週安排約 <strong>180–210 分鐘</strong>有氧＋兩次輕量肌力（自重或彈力帶）。</li>
-      <li>輪值夜更時：可改為分段步行（每次 10–15 分鐘 × 2–3），仍計入當日運動。</li>
-      <li>有胸痛、暈眩、關節劇痛應停止並求醫；運動前若已開始他汀，出現不明肌肉痛需告知醫生。</li>
+      <li><strong>說話測試：</strong>邊做邊說話——可以說完整句，但唱不出歌；若氣喘到講不完一句，就放慢。</li>
+      <li><strong>心率簡算：</strong>目標大約最大心率的 50–70%。最大心率可用 <strong>220 − 年齡</strong>（例如 40 歲 → 約 180；中等強度約 90–126 下／分鐘）。有心跳帶或手錶更好，沒有就靠說話測試。</li>
+      <li><strong>感覺：</strong>微微出汗、呼吸加快，但仍可維持對話。</li>
     </ul>
+
+    <h3>每次運動的結構（記住這三段）</h3>
+    <ul class="clean">
+      <li><strong>熱身 5 分鐘：</strong>慢走或原地輕踏，把關節活動開（轉肩、轉踝）。</li>
+      <li><strong>主運動：</strong>選下面 A／B／C 其中一種（或當日指定）。</li>
+      <li><strong>緩和 5 分鐘：</strong>慢走＋簡單伸展（小腿、大腿前側、胸口），不要突然停下來站着不動。</li>
+    </ul>
+
+    <div class="howto">
+      <div class="howto-card">
+        <h3>A. 快走（最推薦，戶外或商場）</h3>
+        <ol>
+          <li><strong>姿勢：</strong>抬頭望前方（勿低頭看手機）、肩放鬆、手自然前後擺臂；腳跟先着地，再滾到腳掌前掌，步幅自然略大。</li>
+          <li><strong>配速：</strong>約每小時 5–6 公里，或感覺稍喘但仍能邊走邊說話。若跟不上，先維持「說話測試」的節奏即可。</li>
+          <li><strong>時間：</strong>每次主運動 30–40 分鐘；忙時可拆成 <strong>2 × 15–20 分鐘</strong>，效果一樣計入。</li>
+          <li><strong>檢查：</strong>途中每 10 分鐘做一次說話測試，調整快慢。</li>
+        </ol>
+      </div>
+      <div class="howto-card">
+        <h3>B. 原地踏步／行樓梯（下雨或夜班後）</h3>
+        <ol>
+          <li><strong>原地踏步：</strong>膝蓋抬到約大腿與地面平行（或你舒適的高度），雙臂同步擺動；每分鐘大約 <strong>100–120 步</strong>（跟着手機節拍器亦可）。</li>
+          <li><strong>怎樣踩：</strong>全腳掌或前掌柔和落地，勿用腳尖重跺；核心微收，腰背挺直。</li>
+          <li><strong>行樓梯：</strong>上一層再下一層循環；手可輕扶欄杆保持平衡，<strong>勿整隻手用力拉着爬</strong>。一步一階，不要跨兩階。</li>
+          <li><strong>時間：</strong>主運動 20–30 分鐘；可做 5 分鐘踏步 → 休息 1 分鐘喝水 → 再重複。</li>
+        </ol>
+      </div>
+      <div class="howto-card">
+        <h3>C. 簡單肌力（隔天，在家 15–20 分鐘）</h3>
+        <p style="margin:0 0 8px;font-size:0.92rem;">每個動作 <strong>8–12 下 × 2–3 組</strong>；組與組之間休息 <strong>45–60 秒</strong>。動作要慢控，不要借力甩。</p>
+        <ol>
+          <li><strong>靠牆深蹲：</strong>背貼牆，雙腳與肩同寬、離牆約兩腳掌；慢慢屈膝下滑至大腿約與地面平行（膝蓋勿超過腳尖太多），停留 1 秒再推起。膝蓋不適可少蹲深一點。</li>
+          <li><strong>靠牆俯卧撑：</strong>雙手撑牆、與肩同寬，身體成一直線；手肘彎曲讓胸口靠近牆，再推開。太易可把腳再後退一點加難度。</li>
+          <li><strong>平板支撑：</strong>肘與肩垂直，身體成一直線，收腹；維持 <strong>20–40 秒</strong>。手腕或腰不適可用<strong>膝蓋着地變式</strong>（仍保持背直）。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="safe">
+      <strong>安全：</strong>出現胸痛、頭暈、噁心、氣喘發作或單側無力 → <strong>立刻停止</strong>並求醫。勿空腹做劇烈運動；飯後約 1 小時再開始較妥。穿穩固平底運動鞋，地面濕滑勿強行。若已服用他汀而出現不明肌肉痛，告知醫生後再決定是否暫停訓練。
+    </div>
+
+    <h3>本週日程一覽</h3>
     <table>
       <thead>
-        <tr><th>日</th><th>建議</th><th>約計分鐘</th></tr>
+        <tr><th>日</th><th>當日主項</th><th>約計</th></tr>
       </thead>
       <tbody>
-        <tr><td>一</td><td>快走或緩跑</td><td>35</td></tr>
-        <tr><td>二</td><td>快走＋核心輕訓</td><td>40</td></tr>
-        <tr><td>三</td><td>休息或伸展瑜伽</td><td>20（輕）</td></tr>
-        <tr><td>四</td><td>快走或踏單車</td><td>40</td></tr>
-        <tr><td>五</td><td>快走＋上肢輕訓</td><td>35</td></tr>
-        <tr><td>六</td><td>戶外步行／行山輕線</td><td>45</td></tr>
-        <tr><td>日</td><td>輕量活動或休息</td><td>20（輕）</td></tr>
+        <tr><td>一</td><td>快走日（熱身→快走→緩和）</td><td>35 分</td></tr>
+        <tr><td>二</td><td>肌力日（靠牆深蹲／俯卧撑／平板）</td><td>20 分</td></tr>
+        <tr><td>三</td><td>快走或原地踏步</td><td>35 分</td></tr>
+        <tr><td>四</td><td>肌力日</td><td>20 分</td></tr>
+        <tr><td>五</td><td>快走日</td><td>40 分</td></tr>
+        <tr><td>六</td><td>較長快走／輕行山</td><td>45 分</td></tr>
+        <tr><td>日</td><td>輕量日：慢走＋伸展</td><td>20 分</td></tr>
       </tbody>
     </table>
+    <p class="tip" style="margin-bottom:0">進入「七日計劃」後，每一天都有<strong>逐步指令</strong>，照着做即可。</p>
   </section>
 
   <section class="card" id="supplements">
@@ -515,80 +571,126 @@
 (function () {
   const DAYS = [
     {
-      id: 1, title: "星期一",
+      id: 1, title: "星期一 · 快走日",
       meals: {
         b: "即食燕麥片＋低脂奶＋香蕉半條；或不加糖豆漿＋全麥包一小片",
         l: "糙米飯半碗＋清蒸魚＋炒菜心（少油）；湯：番茄豆腐湯",
         d: "雞胸肉沙律碗（生菜、青瓜、番茄、橄欖油黑醋汁）＋番薯一塊",
         s: "蘋果一個或無糖乳酪"
       },
-      exercise: "快走 30–35 分鐘（可分段）。飯後散步亦可。",
+      exercise: "快走 35 分鐘（三段式）",
+      exerciseHtml: `<ol class="ex-steps">
+        <li><strong>熱身 5 分鐘：</strong>慢走，擺臂，轉轉肩踝。</li>
+        <li><strong>主運動 25 分鐘快走：</strong>抬頭、擺臂、腳跟先着地；配速以「能講完整句但唱不出歌」為準。</li>
+        <li><strong>途中檢查：</strong>每 10 分鐘做一次說話測試，太喘就放慢 1–2 分鐘再加速。</li>
+        <li><strong>緩和 5 分鐘：</strong>慢走，小腿與大腿前側各伸展 20 秒。</li>
+        <li>忙則改 <strong>2 × 15–20 分鐘</strong>同款快走，中間可休息。</li>
+      </ol>`,
       mins: 35
     },
     {
-      id: 2, title: "星期二",
+      id: 2, title: "星期二 · 肌力日",
       meals: {
         b: "雞蛋一隻水煮／炒（少油）＋全麥多士＋番茄",
         l: "豆腐煮魚湯河粉（少油）＋額外青菜",
         d: "蒜蓉西兰花炒瘦肉絲（去肥）＋五穀飯半碗",
         s: "一小把無鹽杏仁（約 10 粒）"
       },
-      exercise: "快走 25 分鐘＋核心輕訓 10–15 分鐘（平板支撐、橋式）。",
-      mins: 40
+      exercise: "家中肌力 15–20 分鐘",
+      exerciseHtml: `<ol class="ex-steps">
+        <li><strong>熱身 3–5 分鐘：</strong>原地踏步＋開合肩。</li>
+        <li><strong>靠牆深蹲：</strong>10 下 × 3 組（組間休息 45–60 秒）。背貼牆下滑至舒適深度，膝蓋對準腳尖方向。</li>
+        <li><strong>靠牆俯卧撑：</strong>8–10 下 × 3 組。身體成直線，胸口靠近牆再推開。</li>
+        <li><strong>平板支撑：</strong>20–40 秒 × 2 組；膝蓋着地變式亦可，重點是背直、收腹。</li>
+        <li><strong>緩和：</strong>站姿體前彎（微屈膝）20 秒，深呼吸 5 次。</li>
+      </ol>`,
+      mins: 20
     },
     {
-      id: 3, title: "星期三 · 輕量日",
+      id: 3, title: "星期三 · 快走／踏步日",
       meals: {
         b: "燕麥粥＋藍莓或急凍莓果＋少許核桃",
         l: "白切雞（去皮）＋油菜＋米飯半碗；或醫院食堂選清蒸／白切菜式",
         d: "蒸水蛋＋炒菇菜＋豆腐",
         s: "奇異果或橙"
       },
-      exercise: "休息或伸展／瑜伽 15–20 分鐘。輪夜更則改短步行即可。",
-      mins: 20
+      exercise: "快走或原地踏步 35 分鐘",
+      exerciseHtml: `<ol class="ex-steps">
+        <li><strong>熱身 5 分鐘</strong>慢走或輕踏。</li>
+        <li><strong>選一：</strong>戶外快走 25 分鐘（同星期一姿勢與說話測試）；或<strong>室內原地踏步 25 分鐘</strong>（膝蓋上抬、約每分鐘 100–120 步，可 5 分鐘踏＋1 分鐘休息循環）。</li>
+        <li>夜班後可改行樓梯：上一層下一層，輕扶欄，共約 15–20 分鐘，再補慢走。</li>
+        <li><strong>緩和 5 分鐘</strong>慢走＋伸展。</li>
+      </ol>`,
+      mins: 35
     },
     {
-      id: 4, title: "星期四",
+      id: 4, title: "星期四 · 肌力日",
       meals: {
         b: "低脂奶燕麥＋蘋果丁",
         l: "蒸茄汁魚（少糖）＋青菜＋糙米半碗",
         d: "橄欖油蒜香蝦仁意粉（全麥，份量適中）＋沙律",
         s: "無糖豆漿一杯"
       },
-      exercise: "快走或室內踏步／單車 35–40 分鐘。",
-      mins: 40
+      exercise: "肌力複習＋可加一組",
+      exerciseHtml: `<ol class="ex-steps">
+        <li><strong>熱身 5 分鐘</strong>原地踏步。</li>
+        <li><strong>靠牆深蹲 10–12 下 × 3</strong>；若星期二已輕鬆，可每組多 2 下，勿勉強加深。</li>
+        <li><strong>靠牆俯卧撑 8–12 下 × 3</strong>；太易就把腳再後退加大角度。</li>
+        <li><strong>平板 25–40 秒 × 2–3</strong>（膝蓋着地亦可）。</li>
+        <li>組間休息 45–60 秒；全程約 20 分鐘。胸痛／暈立刻停。</li>
+      </ol>`,
+      mins: 20
     },
     {
-      id: 5, title: "星期五",
+      id: 5, title: "星期五 · 快走日",
       meals: {
         b: "全麥包夾雞蛋＋青瓜；或燕麥＋香蕉",
         l: "豆角炒瘦肉＋豆腐湯＋飯半碗",
         d: "清蒸鱈魚／黃花魚＋蒜蓉菠菜＋玉米",
         s: "乳酪或水果"
       },
-      exercise: "快走 25 分鐘＋上肢輕訓（彈力帶划船、牆推）10 分鐘。",
-      mins: 35
+      exercise: "快走 40 分鐘（可分段）",
+      exerciseHtml: `<ol class="ex-steps">
+        <li><strong>熱身 5 分鐘</strong>慢走。</li>
+        <li><strong>快走 30 分鐘：</strong>維持中等強度（說話測試）；可用手機看地圖估算距離約 2.5–3 公里。</li>
+        <li>每 10 分鐘檢查一次能否邊走邊說話；氣喘則放慢。</li>
+        <li><strong>緩和 5 分鐘</strong>。時間緊可拆成早上 20 分＋下班後 20 分。</li>
+      </ol>`,
+      mins: 40
     },
     {
-      id: 6, title: "星期六",
+      id: 6, title: "星期六 · 較長步行",
       meals: {
         b: "燕麥班戟（少油）＋水果；或雲吞麵改選青菜雲吞、少油蔥",
         l: "葡國雞改為自家低脂版：去皮雞腿、少椰漿、多蔬菜；或外出選清蒸海鮮",
         d: "豆腐蔬菜煲＋少量瘦肉片＋飯半碗",
         s: "水果拼盤"
       },
-      exercise: "戶外步行或輕行山 40–45 分鐘（注意防曬補水）。",
+      exercise: "戶外步行或輕行山 45 分鐘",
+      exerciseHtml: `<ol class="ex-steps">
+        <li>出發前喝幾口水、穿穩固運動鞋、帶小瓶水。</li>
+        <li><strong>熱身 5 分鐘</strong>平路慢走。</li>
+        <li><strong>主段 35 分鐘：</strong>平路快走，或選<strong>緩坡輕行山</strong>（勿選陡峭技術路）。上坡可縮短步幅，仍用說話測試控速。</li>
+        <li>中途可站停 30 秒喝水，不要坐下太久再突然衝刺。</li>
+        <li><strong>緩和 5 分鐘</strong>平路慢走＋小腿伸展。注意防曬。</li>
+      </ol>`,
       mins: 45
     },
     {
-      id: 7, title: "星期日 · 調整日",
+      id: 7, title: "星期日 · 輕量日",
       meals: {
         b: "雞蛋＋蔬菜＋全麥包；咖啡／茶不加全脂奶精",
         l: "家庭例湯（去油）＋蒸魚＋大量蔬菜＋飯半碗",
         d: "輕食：雞胸沙律或豆腐沙拉，橄欖油調味",
         s: "可選：燕麥餅乾（低糖）或水果"
       },
-      exercise: "輕量活動 20 分鐘，或完全休息。回顧本週打卡與飲食。",
+      exercise: "慢走＋伸展 20 分鐘（可休息）",
+      exerciseHtml: `<ol class="ex-steps">
+        <li>本週較輕一天：以恢復為主，<strong>不要做高強度間歇</strong>。</li>
+        <li><strong>慢走 10–12 分鐘</strong>（社區或走廊即可），呼吸平順。</li>
+        <li><strong>伸展 8–10 分鐘：</strong>小腿、大腿前側、胸口、肩頸各側 20–30 秒，勿彈震拉扯。</li>
+        <li>身體疲勞可改為純休息；回顧本週哪幾天達標，下週一從快走再開始。</li>
+      </ol>`,
       mins: 20
     }
   ];
@@ -634,7 +736,7 @@
             <div class="meal-row"><span class="k">小食</span><span>${d.meals.s}</span></div>
           </div>
           <h3>運動</h3>
-          <div class="ex"><span class="mins">約 ${d.mins} 分鐘</span> — ${d.exercise}</div>
+          <div class="ex"><span class="mins">約 ${d.mins} 分鐘</span><span class="tag">${d.exercise}</span>${d.exerciseHtml}</div>
           <h3>服藥</h3>
           <div class="ex">依醫囑服用已處方藥物；未有處方則記錄「待醫生確認」。藥物資料可在主頁「藥物記錄」填寫。</div>
           <h3>今日打卡</h3>
