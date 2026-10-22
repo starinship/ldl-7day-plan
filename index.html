@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>七天血脂生活方式規劃｜LDL 為首要目標</title>
+<style>
+  :root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --ink: #1a2332;
+    --muted: #5a6a7e;
+    --primary: #1d6f8a;
+    --primary-soft: #e6f4f8;
+    --accent: #c45c26;
+    --accent-soft: #fff0e8;
+    --good: #1a7a4c;
+    --good-soft: #e6f6ee;
+    --warn: #b45309;
+    --warn-soft: #fff7ed;
+    --danger: #b91c1c;
+    --danger-soft: #fef2f2;
+    --border: #d8e0ea;
+    --shadow: 0 8px 24px rgba(26, 35, 50, 0.06);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(180deg, #e8f2f6 0%, var(--bg) 220px);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 20px 16px 64px; }
+  header.hero {
+    background: linear-gradient(135deg, #135a72 0%, #1d6f8a 45%, #2a8aa3 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+  header.hero h1 { margin: 0 0 8px; font-size: 1.55rem; letter-spacing: 0.02em; }
+  header.hero p { margin: 0; opacity: 0.92; font-size: 0.95rem; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .badge {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+  }
+  .disclaimer {
+    background: var(--warn-soft);
+    border: 1px solid #f0c9a0;
+    border-left: 4px solid var(--warn);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    color: #7c3d0a;
+    font-size: 0.92rem;
+  }
+  .disclaimer strong { display: block; margin-bottom: 4px; }
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  nav.toc a {
+    text-decoration: none;
+    color: var(--primary);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  }
+  nav.toc a:hover { background: var(--primary-soft); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .card h2 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 {
+    margin: 18px 0 8px;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+  .nums {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 640px) {
+    .nums { grid-template-columns: repeat(4, 1fr); }
+  }
+  .num {
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .num .label { font-size: 0.78rem; color: var(--muted); }
+  .num .val { font-size: 1.25rem; font-weight: 700; margin: 4px 0; }
+  .num .tag { font-size: 0.75rem; font-weight: 600; }
+  .num.high { background: var(--danger-soft); border-color: #fecaca; }
+  .num.high .val, .num.high .tag { color: var(--danger); }
+  .num.good { background: var(--good-soft); border-color: #bbf7d0; }
+  .num.good .val, .num.good .tag { color: var(--good); }
+  .tip {
+    background: var(--primary-soft);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    color: #134e63;
+    margin-top: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f0f5f8; color: var(--muted); font-weight: 600; }
+  input[type="text"], input[type="time"], select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+  }
+  textarea { min-height: 64px; resize: vertical; }
+  .med-grid {
+    display: grid;
+    gap: 10px;
+  }
+  @media (min-width: 640px) {
+    .med-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .day {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .day-head {
+    background: linear-gradient(90deg, var(--primary-soft), #fff);
+    padding: 12px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .day-head strong { color: var(--primary); font-size: 1.05rem; }
+  .checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    font-size: 0.88rem;
+  }
+  .checks label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .checks input { width: 16px; height: 16px; accent-color: var(--primary); }
+  .day-body { padding: 12px 14px 14px; }
+  .meal {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .meal-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 8px;
+    font-size: 0.92rem;
+  }
+  .meal-row .k {
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .ex {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 6px;
+    font-size: 0.92rem;
+  }
+  .ex .mins { color: var(--accent); font-weight: 700; }
+  ul.clean { margin: 8px 0; padding-left: 1.2em; }
+  ul.clean li { margin: 4px 0; }
+  .shop {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 640px) {
+    .shop { grid-template-columns: 1fr 1fr; }
+  }
+  .shop-box {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .shop-box h4 { margin: 0 0 8px; color: var(--primary); font-size: 0.95rem; }
+  .opt-note {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  button {
+    appearance: none;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button.secondary {
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid var(--border);
+  }
+  button:hover { filter: brightness(1.05); }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 8px;
+  }
+  .progress {
+    margin-top: 10px;
+    background: #e8eef3;
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .progress > span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1d6f8a, #2a9b6a);
+    transition: width 0.25s ease;
+  }
+  .progress-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>七天血脂生活方式規劃</h1>
+    <p>以降低 LDL 膽固醇為首要目標 · 飲食為主、運動輔助、藥物依醫囑</p>
+    <div class="badge-row">
+      <span class="badge">適合輪班護士的務實餐單</span>
+      <span class="badge">每週有氧 ≥150 分鐘</span>
+      <span class="badge">進度可於本機儲存</span>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    <strong>重要聲明</strong>
+    本頁僅供生活方式參考，不能取代醫生診斷或治療決定。是否使用他汀類藥物及劑量，必須由醫生根據整體心血管風險個別化判斷。如已獲處方藥物，請嚴格依醫囑服用，切勿自行增減劑量或停藥。有胸痛、氣促、肌肉劇痛或其他不適，應立即求醫。
+  </div>
+
+  <nav class="toc">
+    <a href="#labs">目標</a>
+    <a href="#meds">藥物記錄</a>
+    <a href="#week">七日計劃</a>
+    <a href="#exercise">運動總覽</a>
+    <a href="#supplements">可選補充</a>
+    <a href="#shopping">購物清單</a>
+    <a href="#tips">要點提示</a>
+  </nav>
+
+  <section class="card" id="labs">
+    <h2>① 目標</h2>
+    <p>目標：降低 LDL（低密度膽固醇），並維持良好 HDL。</p>
+    <div class="tip">
+      <strong>解讀重點：</strong>降低心血管風險的主要靶點是 LDL。HDL 良好屬保護因素，但不能抵銷 LDL 偏高的影響。建議補查甘油三酯，並由醫生作完整風險評估（血壓、糖尿病、吸煙、家族史、年齡等）。
+    </div>
+    <div class="progress" aria-hidden="true"><span id="weekProgress"></span></div>
+    <div class="progress-label" id="weekProgressLabel">本週清單完成度：0%</div>
+  </section>
+
+  <section class="card" id="meds">
+    <h2>② 藥物記錄（待醫生確認）</h2>
+    <p style="margin-top:0;color:var(--muted);font-size:0.92rem;">
+      以下欄位供記錄<strong>醫生已處方</strong>的藥物。本表<strong>不預設</strong>你已服用阿托伐他汀（Lipitor）或其他他汀；常見起始劑量僅供與醫生討論時參考。
+    </p>
+    <div class="med-grid">
+      <div>
+        <label for="drugName"><strong>藥物名稱</strong></label>
+        <input type="text" id="drugName" placeholder="例如：阿托伐他汀（待醫生確認）" data-persist="drugName">
+      </div>
+      <div>
+        <label for="drugDose"><strong>劑量與時間</strong></label>
+        <input type="text" id="drugDose" placeholder="例如：10–20 mg，每晚一次（待確認）" data-persist="drugDose">
+      </div>
+      <div>
+        <label for="drugStatus"><strong>目前狀態</strong></label>
+        <select id="drugStatus" data-persist="drugStatus">
+          <option value="pending">待醫生確認／尚未處方</option>
+          <option value="prescribed">已獲處方，依醫囑服用</option>
+          <option value="declined">醫生暫不建議用藥，先生活方式</option>
+        </select>
+      </div>
+      <div>
+        <label for="drugNote"><strong>副作用／備註</strong></label>
+        <input type="text" id="drugNote" placeholder="例如：肌肉酸痛、胃部不適等，應告知醫生" data-persist="drugNote">
+      </div>
+    </div>
+    <div class="tip" style="margin-top:12px;">
+      參考資訊（非處方）：中等強度他汀常見起始為阿托伐他汀 10–20 mg；用藥後通常 4–12 週覆查血脂。最終劑量與是否用藥，一律由醫生決定。
+    </div>
+  </section>
+
+  <section class="card" id="week">
+    <h2>③ 七日飲食 × 運動 × 打卡</h2>
+    <p style="margin-top:0;color:var(--muted);font-size:0.92rem;">
+      餐單以澳門／香港常見食材為主，適合輪班護士準備；重點為減少飽和脂肪與反式脂肪，增加可溶性纖維（燕麥、豆類、蔬果），並以橄欖油、堅果等不飽和脂肪取代。勾選狀態會儲存在本瀏覽器。
+    </p>
+    <div class="actions">
+      <button type="button" class="secondary" id="resetChecks">清除本週打卡</button>
+      <button type="button" class="secondary" id="printBtn">列印／匯出 PDF</button>
+    </div>
+    <div id="days"></div>
+  </section>
+
+  <section class="card" id="exercise">
+    <h2>④ 運動總覽（目標 ≥150 分鐘／週）</h2>
+    <ul class="clean">
+      <li>中等強度有氧：快走、缓跑、踏單車、游泳；說話尚可、但不應輕鬆唱歌。</li>
+      <li>本週安排約 <strong>180–210 分鐘</strong>有氧＋兩次輕量肌力（自重或彈力帶）。</li>
+      <li>輪值夜更時：可改為分段步行（每次 10–15 分鐘 × 2–3），仍計入當日運動。</li>
+      <li>有胸痛、暈眩、關節劇痛應停止並求醫；運動前若已開始他汀，出現不明肌肉痛需告知醫生。</li>
+    </ul>
+    <table>
+      <thead>
+        <tr><th>日</th><th>建議</th><th>約計分鐘</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>一</td><td>快走或緩跑</td><td>35</td></tr>
+        <tr><td>二</td><td>快走＋核心輕訓</td><td>40</td></tr>
+        <tr><td>三</td><td>休息或伸展瑜伽</td><td>20（輕）</td></tr>
+        <tr><td>四</td><td>快走或踏單車</td><td>40</td></tr>
+        <tr><td>五</td><td>快走＋上肢輕訓</td><td>35</td></tr>
+        <tr><td>六</td><td>戶外步行／行山輕線</td><td>45</td></tr>
+        <tr><td>日</td><td>輕量活動或休息</td><td>20（輕）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card" id="supplements">
+    <h2>⑤ 可選補充（先問醫生）</h2>
+    <div class="opt-note">
+      補充品<strong>不能取代</strong>飲食調整與必要時的他汀治療。開始任何補充前，請先諮詢醫生或藥劑師，尤其是已服用處方藥者。
+    </div>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>可能用途</th><th>注意</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>可溶性纖維補充<br>（車前子殼／洋車前子）</td>
+          <td>輔助降低 LDL；亦可先靠燕麥、豆類、蔬果達標</td>
+          <td>多喝水；可能影響部分藥物吸收，與藥物間隔服用</td>
+        </tr>
+        <tr>
+          <td>植物固醇／甾醇<br>（強化牛奶、補充劑）</td>
+          <td>有證據可輕度降低 LDL</td>
+          <td>依產品標示劑量；非人人需要</td>
+        </tr>
+        <tr>
+          <td>Omega-3（魚油）</td>
+          <td>若甘油三酯偏高，醫生或會考慮</td>
+          <td>出血傾向、抗凝藥使用者需醫生評估</td>
+        </tr>
+        <tr>
+          <td>紅麴（red yeast rice）</td>
+          <td>含類似他汀成分</td>
+          <td><strong>若已服用或將服用他汀，不宜自行併用</strong>；有肝臟與肌肉風險，必須問醫生</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card" id="shopping">
+    <h2>⑥ 本週購物清單（澳門超市／街市易買）</h2>
+    <div class="shop">
+      <div class="shop-box">
+        <h4>主食與纖維</h4>
+        <ul class="clean">
+          <li>即食燕麥片、全麥包、糙米或五穀米</li>
+          <li>豆腐、荳腐泡、鷹嘴豆／紅豆／眉豆</li>
+          <li>番薯、玉米、馬鈴薯（少油焗或蒸）</li>
+        </ul>
+      </div>
+      <div class="shop-box">
+        <h4>蛋白質</h4>
+        <ul class="clean">
+          <li>雞胸肉、瘦豬肉（去皮去肥）、雞蛋</li>
+          <li>魚（鯇魚、鱈魚、三文魚、黃花魚等，清蒸為佳）</li>
+          <li>去殼蝦、低脂乳酪或脫脂／低脂奶</li>
+        </ul>
+      </div>
+      <div class="shop-box">
+        <h4>蔬菜水果</h4>
+        <ul class="clean">
+          <li>菜心、芥蘭、菠菜、西兰花、番茄、青瓜</li>
+          <li>菇類、胡蘿蔔、洋蔥、蒜頭</li>
+          <li>蘋果、香蕉、橙、奇異果、莓果（急凍亦可）</li>
+        </ul>
+      </div>
+      <div class="shop-box">
+        <h4>健康脂肪與調味</h4>
+        <ul class="clean">
+          <li>特級初榨橄欖油、少量堅果（杏仁、核桃）</li>
+          <li>亞麻籽或芝麻（少許）</li>
+          <li>生抽、黑醋、胡椒、薑、香草；少用豬油、奶油、椰漿</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip">
+      <strong>宜少買／避免：</strong>肥肉、內臟、奶油蛋糕、全脂芝士、油炸小吃、人造奶油酥皮、加工肉腸。出外用膳可選清蒸魚、白切雞（去皮）、菜湯河粉（少油），要求少油少汁。
+    </div>
+  </section>
+
+  <section class="card" id="tips">
+    <h2>⑦ 要點提示</h2>
+    <ul class="clean">
+      <li><strong>首要目標是 LDL</strong>，總膽固醇與非 HDL 偏高作為佐證；HDL 良好值得保持，但不能抵銷 LDL 風險。</li>
+      <li><strong>飲食通常比單靠運動更能降低 LDL</strong>；運動有助體重、血壓與 HDL。</li>
+      <li>生活方式調整後，宜依醫生指示定期覆查血脂；若已用他汀，常見於 4–12 週覆查。</li>
+      <li>輪班日子：預先煮好兩日份蛋白質與蔬菜，用盒飯保溫；宵夜選燕麥＋水果，避免油炸。</li>
+      <li>本頁打卡資料只存在你的瀏覽器（localStorage），不會上傳至任何伺服器。</li>
+    </ul>
+  </section>
+
+  <footer>
+    生活方式參考頁 · 非醫療處方 · 請與主診醫生討論個人化方案
+  </footer>
+</div>
+
+<script>
+(function () {
+  const DAYS = [
+    {
+      id: 1, title: "星期一",
+      meals: {
+        b: "即食燕麥片＋低脂奶＋香蕉半條；或不加糖豆漿＋全麥包一小片",
+        l: "糙米飯半碗＋清蒸魚＋炒菜心（少油）；湯：番茄豆腐湯",
+        d: "雞胸肉沙律碗（生菜、青瓜、番茄、橄欖油黑醋汁）＋番薯一塊",
+        s: "蘋果一個或無糖乳酪"
+      },
+      exercise: "快走 30–35 分鐘（可分段）。飯後散步亦可。",
+      mins: 35
+    },
+    {
+      id: 2, title: "星期二",
+      meals: {
+        b: "雞蛋一隻水煮／炒（少油）＋全麥多士＋番茄",
+        l: "豆腐煮魚湯河粉（少油）＋額外青菜",
+        d: "蒜蓉西兰花炒瘦肉絲（去肥）＋五穀飯半碗",
+        s: "一小把無鹽杏仁（約 10 粒）"
+      },
+      exercise: "快走 25 分鐘＋核心輕訓 10–15 分鐘（平板支撐、橋式）。",
+      mins: 40
+    },
+    {
+      id: 3, title: "星期三 · 輕量日",
+      meals: {
+        b: "燕麥粥＋藍莓或急凍莓果＋少許核桃",
+        l: "白切雞（去皮）＋油菜＋米飯半碗；或醫院食堂選清蒸／白切菜式",
+        d: "蒸水蛋＋炒菇菜＋豆腐",
+        s: "奇異果或橙"
+      },
+      exercise: "休息或伸展／瑜伽 15–20 分鐘。輪夜更則改短步行即可。",
+      mins: 20
+    },
+    {
+      id: 4, title: "星期四",
+      meals: {
+        b: "低脂奶燕麥＋蘋果丁",
+        l: "蒸茄汁魚（少糖）＋青菜＋糙米半碗",
+        d: "橄欖油蒜香蝦仁意粉（全麥，份量適中）＋沙律",
+        s: "無糖豆漿一杯"
+      },
+      exercise: "快走或室內踏步／單車 35–40 分鐘。",
+      mins: 40
+    },
+    {
+      id: 5, title: "星期五",
+      meals: {
+        b: "全麥包夾雞蛋＋青瓜；或燕麥＋香蕉",
+        l: "豆角炒瘦肉＋豆腐湯＋飯半碗",
+        d: "清蒸鱈魚／黃花魚＋蒜蓉菠菜＋玉米",
+        s: "乳酪或水果"
+      },
+      exercise: "快走 25 分鐘＋上肢輕訓（彈力帶划船、牆推）10 分鐘。",
+      mins: 35
+    },
+    {
+      id: 6, title: "星期六",
+      meals: {
+        b: "燕麥班戟（少油）＋水果；或雲吞麵改選青菜雲吞、少油蔥",
+        l: "葡國雞改為自家低脂版：去皮雞腿、少椰漿、多蔬菜；或外出選清蒸海鮮",
+        d: "豆腐蔬菜煲＋少量瘦肉片＋飯半碗",
+        s: "水果拼盤"
+      },
+      exercise: "戶外步行或輕行山 40–45 分鐘（注意防曬補水）。",
+      mins: 45
+    },
+    {
+      id: 7, title: "星期日 · 調整日",
+      meals: {
+        b: "雞蛋＋蔬菜＋全麥包；咖啡／茶不加全脂奶精",
+        l: "家庭例湯（去油）＋蒸魚＋大量蔬菜＋飯半碗",
+        d: "輕食：雞胸沙律或豆腐沙拉，橄欖油調味",
+        s: "可選：燕麥餅乾（低糖）或水果"
+      },
+      exercise: "輕量活動 20 分鐘，或完全休息。回顧本週打卡與飲食。",
+      mins: 20
+    }
+  ];
+
+  const root = document.getElementById("days");
+  const LS_KEY = "ldl7day_v1";
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); }
+    catch { return {}; }
+  }
+  function save(data) {
+    localStorage.setItem(LS_KEY, JSON.stringify(data));
+  }
+
+  let state = load();
+
+  function render() {
+    root.innerHTML = DAYS.map(d => {
+      const k = "d" + d.id;
+      const c = state[k] || {};
+      return `
+      <article class="day" data-day="${d.id}">
+        <div class="day-head">
+          <strong>第 ${d.id} 天 · ${d.title}</strong>
+          <div class="checks">
+            <label><input type="checkbox" data-k="${k}" data-f="med" ${c.med ? "checked" : ""}> 服藥／確認狀態</label>
+            <label><input type="checkbox" data-k="${k}" data-f="ex" ${c.ex ? "checked" : ""}> 運動完成</label>
+            <label><input type="checkbox" data-k="${k}" data-f="diet" ${c.diet ? "checked" : ""}> 飲食達標</label>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="meal">
+            <div class="meal-row"><span class="k">早餐</span><span>${d.meals.b}</span></div>
+            <div class="meal-row"><span class="k">午餐</span><span>${d.meals.l}</span></div>
+            <div class="meal-row"><span class="k">晚餐</span><span>${d.meals.d}</span></div>
+            <div class="meal-row"><span class="k">小食</span><span>${d.meals.s}</span></div>
+          </div>
+          <div class="ex"><span class="mins">運動 · 約 ${d.mins} 分鐘</span> — ${d.exercise}</div>
+          <div style="margin-top:10px;">
+            <label for="note${d.id}" style="font-size:0.85rem;color:var(--muted);">當日備註（副作用／飲食偏離等）</label>
+            <textarea id="note${d.id}" data-persist-day="${k}" placeholder="選填">${c.note || ""}</textarea>
+          </div>
+        </div>
+      </article>`;
+    }).join("");
+
+    root.querySelectorAll('input[type="checkbox"]').forEach(el => {
+      el.addEventListener("change", () => {
+        const k = el.getAttribute("data-k");
+        const f = el.getAttribute("data-f");
+        state[k] = state[k] || {};
+        state[k][f] = el.checked;
+        save(state);
+        updateProgress();
+      });
+    });
+    root.querySelectorAll("textarea[data-persist-day]").forEach(el => {
+      el.addEventListener("input", () => {
+        const k = el.getAttribute("data-persist-day");
+        state[k] = state[k] || {};
+        state[k].note = el.value;
+        save(state);
+      });
+    });
+    updateProgress();
+  }
+
+  function updateProgress() {
+    let total = DAYS.length * 3;
+    let done = 0;
+    DAYS.forEach(d => {
+      const c = state["d" + d.id] || {};
+      if (c.med) done++;
+      if (c.ex) done++;
+      if (c.diet) done++;
+    });
+    const pct = total ? Math.round(done / total * 100) : 0;
+    document.getElementById("weekProgress").style.width = pct + "%";
+    document.getElementById("weekProgressLabel").textContent =
+      "本週清單完成度：" + pct + "%（" + done + "／" + total + " 項）";
+  }
+
+  // Persist medication fields
+  document.querySelectorAll("[data-persist]").forEach(el => {
+    const key = el.getAttribute("data-persist");
+    if (state.fields && state.fields[key] != null) el.value = state.fields[key];
+    el.addEventListener("input", () => {
+      state.fields = state.fields || {};
+      state.fields[key] = el.value;
+      save(state);
+    });
+    el.addEventListener("change", () => {
+      state.fields = state.fields || {};
+      state.fields[key] = el.value;
+      save(state);
+    });
+  });
+
+  document.getElementById("resetChecks").addEventListener("click", () => {
+    if (!confirm("確定清除本週所有打卡與當日備註？（藥物欄位會保留）")) return;
+    const fields = state.fields;
+    state = { fields: fields };
+    save(state);
+    render();
+  });
+
+  document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+  render();
+})();
+</script>
+</body>
+</html>
