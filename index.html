@@ -2,8 +2,20 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>七天血脂生活方式規劃｜LDL 為首要目標</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d6f8a">
+<meta name="color-scheme" content="light">
+<meta name="description" content="第二週血脂生活方式計劃：澳門日常飲食、運動步驟與打卡。低危人群 LDL 教育目標小於 3.4 mmol/L。記錄只存在本機。">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="血脂計劃">
+<meta name="application-name" content="血脂計劃">
+<meta name="format-detection" content="telephone=no">
+<title>血脂計劃 · 第二週生活方式</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png" type="image/png">
 <style>
   :root {
     --bg: #f4f7fb;
@@ -11,6 +23,7 @@
     --ink: #1a2332;
     --muted: #5a6a7e;
     --primary: #1d6f8a;
+    --primary-dark: #14586e;
     --primary-soft: #e6f4f8;
     --accent: #c45c26;
     --accent-soft: #fff0e8;
@@ -23,215 +36,279 @@
     --border: #d8e0ea;
     --shadow: 0 8px 24px rgba(26, 35, 50, 0.06);
     --radius: 16px;
+    --sat: env(safe-area-inset-top);
+    --sab: env(safe-area-inset-bottom);
+    --sal: env(safe-area-inset-left);
+    --sar: env(safe-area-inset-right);
   }
   * { box-sizing: border-box; }
+  html { background: #1d6f8a; color-scheme: light; -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", system-ui, sans-serif;
+    min-height: 100dvh;
+    font-family: system-ui, -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     background: linear-gradient(180deg, #e8f2f6 0%, var(--bg) 220px);
     color: var(--ink);
     line-height: 1.65;
-    font-size: 15px;
+    font-size: 16px;
+    -webkit-tap-highlight-color: rgba(29, 111, 138, 0.16);
   }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 20px 16px 64px; }
+  button, a, label, input, select, textarea { touch-action: manipulation; }
+  :focus-visible { outline: 3px solid #e8a317; outline-offset: 2px; }
+  .appbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--primary);
+    color: #fff;
+    padding: calc(10px + var(--sat)) calc(16px + var(--sar)) 12px calc(16px + var(--sal));
+  }
+  .appbar h1 { margin: 0; font-size: 1.2rem; font-weight: 750; letter-spacing: 0; }
+  .kicker { margin: 0; font-size: 0.78rem; opacity: 0.88; }
+  .appbar-btn {
+    flex: none;
+    min-height: 44px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--primary);
+    font-size: 0.95rem;
+  }
+  body.plan .appbar { display: none; }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px calc(16px + var(--sar)) calc(28px + var(--sab)) calc(16px + var(--sal));
+  }
+  body.plan .wrap { padding-top: 0; }
   nav.toc {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 8px;
-    margin-bottom: 18px;
+    margin: 0 0 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  nav.toc::-webkit-scrollbar { display: none; }
   nav.toc a {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     text-decoration: none;
     color: var(--primary);
     background: var(--card);
     border: 1px solid var(--border);
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 999px;
-    font-size: 0.85rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    font-size: 0.92rem;
   }
-  nav.toc a:hover { background: var(--primary-soft); }
+  nav.toc a:active { background: var(--primary-soft); }
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 16px;
+    padding: 16px;
+    margin-bottom: 14px;
     box-shadow: var(--shadow);
+    scroll-margin-top: calc(76px + var(--sat));
   }
   .card h2 {
     margin: 0 0 12px;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
-  .card h3 {
-    margin: 18px 0 8px;
-    font-size: 1.02rem;
-    color: var(--ink);
-  }
-  .nums {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  @media (min-width: 640px) {
-    .nums { grid-template-columns: repeat(4, 1fr); }
-  }
+  .card h3 { margin: 18px 0 8px; font-size: 1.02rem; }
+  .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .num {
     border-radius: 12px;
-    padding: 12px;
+    padding: 12px 10px;
     text-align: center;
     border: 1px solid var(--border);
   }
   .num .label { font-size: 0.78rem; color: var(--muted); }
-  .num .val { font-size: 1.25rem; font-weight: 700; margin: 4px 0; }
+  .num .val { font-size: 1.35rem; font-weight: 750; margin: 4px 0; line-height: 1.2; }
   .num .tag { font-size: 0.75rem; font-weight: 600; }
-  .num.high { background: var(--danger-soft); border-color: #fecaca; }
-  .num.high .val, .num.high .tag { color: var(--danger); }
-  .num.good { background: var(--good-soft); border-color: #bbf7d0; }
-  .num.good .val, .num.good .tag { color: var(--good); }
-  .tip {
-    background: var(--primary-soft);
+  .num.goal { background: var(--primary-soft); border-color: #b6dce8; }
+  .num.goal .val, .num.goal .tag { color: var(--primary); }
+  .tip, .disclaimer, .remind, .safe, .opt-note {
     border-radius: 10px;
     padding: 10px 12px;
-    font-size: 0.9rem;
-    color: #134e63;
+    font-size: 0.92rem;
+  }
+  .tip { background: var(--primary-soft); color: #134e63; margin-top: 12px; }
+  .disclaimer {
+    background: var(--warn-soft);
+    border-left: 4px solid var(--warn);
+    color: #7c2d12;
+    margin-bottom: 14px;
+  }
+  .remind {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+  }
+  .safe {
+    background: var(--danger-soft);
+    border-left: 4px solid var(--danger);
     margin-top: 12px;
   }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-  }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
   th, td {
     border: 1px solid var(--border);
     padding: 8px 10px;
     text-align: left;
     vertical-align: top;
   }
-  th { background: #f0f5f8; color: var(--muted); font-weight: 600; }
-  input[type="text"], input[type="time"], select, textarea {
+  th { background: #f0f5f8; color: var(--muted); font-weight: 650; }
+  input[type="text"], select, textarea {
     width: 100%;
-    padding: 8px 10px;
+    min-height: 48px;
+    padding: 10px 12px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     font: inherit;
+    font-size: 16px;
     background: #fff;
   }
-  textarea { min-height: 64px; resize: vertical; }
-  .med-grid {
-    display: grid;
-    gap: 10px;
-  }
-  @media (min-width: 640px) {
-    .med-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .day {
-    border: 1px solid var(--border);
+  textarea { min-height: 88px; resize: vertical; }
+  .field { display: block; font-weight: 700; margin-bottom: 6px; }
+  .med-grid { display: grid; gap: 12px; }
+  .hint { margin: 0 0 12px; color: var(--muted); font-size: 0.92rem; }
+  .plan-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    padding: 16px;
+    font-size: 1.08rem;
     border-radius: 14px;
-    overflow: hidden;
+    min-height: 72px;
+  }
+  .plan-entry small { display: block; font-weight: 450; opacity: 0.9; font-size: 0.85rem; margin-top: 2px; }
+  #planView { display: none; }
+  body.plan #mainView { display: none; }
+  body.plan #planView { display: block; }
+  .plan-top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--primary);
+    color: #fff;
+    margin-left: calc(-16px - var(--sal));
+    margin-right: calc(-16px - var(--sar));
+    padding: calc(10px + var(--sat)) calc(16px + var(--sar)) 10px calc(16px + var(--sal));
     margin-bottom: 12px;
   }
+  .plan-top .row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .plan-top h2 { margin: 0; flex: 1; font-size: 1.02rem; line-height: 1.35; color: #fff; }
+  #backMain {
+    flex: none;
+    min-height: 44px;
+    min-width: 76px;
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .tabs { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .tabs button {
+    padding: 0 2px;
+    min-height: 48px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+  }
+  .tabs button.on { background: #fff; color: var(--primary); }
+  .tabs button.partial { box-shadow: inset 0 -4px 0 #f0c27a; }
+  .tabs button.done { box-shadow: inset 0 -4px 0 #8ee0b8; }
+  .tabs button.on.partial { box-shadow: inset 0 -4px 0 #c45c26; }
+  .tabs button.on.done { box-shadow: inset 0 -4px 0 #1a7a4c; }
+  .day { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #fff; }
   .day-head {
     background: linear-gradient(90deg, var(--primary-soft), #fff);
     padding: 12px 14px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
     border-bottom: 1px solid var(--border);
   }
   .day-head strong { color: var(--primary); font-size: 1.05rem; }
-  .checks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-    font-size: 0.88rem;
-  }
-  .checks label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .checks input { width: 16px; height: 16px; accent-color: var(--primary); }
-  .day-body { padding: 12px 14px 14px; }
-  .meal {
-    display: grid;
-    gap: 6px;
-    margin-bottom: 10px;
-  }
+  .day-body { padding: 12px 14px 16px; }
+  .meal { display: grid; gap: 8px; margin-bottom: 8px; }
   .meal-row {
     display: grid;
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: 52px 1fr;
     gap: 8px;
-    font-size: 0.92rem;
+    font-size: 0.98rem;
   }
-  .meal-row .k {
-    color: var(--muted);
-    font-weight: 600;
-  }
+  .meal-row .k { color: var(--muted); font-weight: 700; }
   .ex {
     background: #f8fafc;
-    border-radius: 10px;
-    padding: 10px 12px;
+    border-radius: 12px;
+    padding: 12px;
     margin-top: 6px;
-    font-size: 0.92rem;
+    font-size: 0.98rem;
   }
-  .ex .mins { color: var(--accent); font-weight: 700; }
-  ul.clean { margin: 8px 0; padding-left: 1.2em; }
-  ul.clean li { margin: 4px 0; }
-  .shop {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .ex .mins { color: var(--accent); font-weight: 750; }
+  .ex .tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
   }
-  @media (min-width: 640px) {
-    .shop { grid-template-columns: 1fr 1fr; }
+  ul.clean, ol.clean { margin: 8px 0; padding-left: 1.25em; }
+  ul.clean li, ol.clean li { margin: 6px 0; }
+  .ex-steps { margin: 8px 0 0; padding-left: 1.2em; }
+  .ex-steps li { margin: 6px 0; }
+  .checks.big { display: flex; flex-direction: column; gap: 8px; }
+  .checks.big label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 52px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    font-size: 1.05rem;
+    font-weight: 650;
+    cursor: pointer;
   }
+  .checks.big input { width: 24px; height: 24px; accent-color: var(--primary); flex: none; }
+  .checks.big label:has(input:checked) {
+    background: var(--good-soft);
+    border-color: #86efac;
+  }
+  .shop { display: grid; gap: 10px; }
   .shop-box {
     background: #f8fafc;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 12px 14px;
   }
-  .shop-box h4 { margin: 0 0 8px; color: var(--primary); font-size: 0.95rem; }
-  .opt-note {
-    background: var(--accent-soft);
-    border-left: 4px solid var(--accent);
-    border-radius: 10px;
-    padding: 10px 12px;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-  }
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-  }
+  .shop-box h3 { margin: 0 0 8px; color: var(--primary); font-size: 1rem; }
   button {
     appearance: none;
     border: none;
     background: var(--primary);
     color: #fff;
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: 12px;
     font: inherit;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
   }
-  button.secondary {
-    background: #fff;
-    color: var(--primary);
-    border: 1px solid var(--border);
-  }
-  button:hover { filter: brightness(1.05); }
+  button:active { transform: scale(0.98); }
+  button.secondary { background: #fff; color: var(--primary); border: 1px solid var(--border); }
   footer {
     text-align: center;
     color: var(--muted);
@@ -242,7 +319,7 @@
     margin-top: 10px;
     background: #e8eef3;
     border-radius: 999px;
-    height: 10px;
+    height: 12px;
     overflow: hidden;
   }
   .progress > span {
@@ -250,319 +327,321 @@
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, #1d6f8a, #2a9b6a);
-    transition: width 0.25s ease;
   }
-  .progress-label {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-top: 6px;
+  .progress-label { font-size: 0.88rem; color: var(--muted); margin-top: 6px; }
+  .howto { display: grid; gap: 12px; margin: 12px 0; }
+  .howto-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
   }
-  .page-title{margin:4px 0 14px;font-size:1.35rem;color:var(--primary)}
-  .plan-entry{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;padding:18px;font-size:1.1rem;border-radius:14px;min-height:64px}
-  .plan-entry small{display:block;font-weight:400;opacity:.85;font-size:.85rem}
-  #planView{display:none}
-  body.plan #mainView{display:none}
-  body.plan #planView{display:block}
-  .plan-top{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0 8px;margin:-20px 0 12px}
-  .plan-top .row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-  .plan-top h2{margin:0;font-size:1.1rem;color:var(--primary)}
-  .tabs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-  .tabs button{padding:0;min-height:48px;font-size:1.1rem;background:#fff;color:var(--primary);border:1px solid var(--border)}
-  .tabs button.on{background:var(--primary);color:#fff}
-  .tabs button.done::after{content:"✓";font-size:.7rem;margin-left:2px}
-  .checks.big{flex-direction:column;gap:6px}
-  .checks.big label{min-height:44px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:1rem}
-  .checks.big input{width:22px;height:22px}
-  .rf-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  @media (min-width:640px){.rf-grid{grid-template-columns:repeat(3,1fr)}}
-  .rf-grid label{font-size:.85rem;color:var(--muted);display:block}
-  input[type="number"]{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font:inherit;font-size:16px;background:#fff}
-  select,input[type="text"],textarea{font-size:16px}
-  .rf-out{margin-top:14px;display:grid;gap:10px}
-  .rf-out .box{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:12px}
-  .lvl{font-weight:700}
-  .lvl.ok{color:var(--good)} .lvl.mid{color:var(--warn)} .lvl.hi{color:var(--danger)}
-
-  .howto{display:grid;gap:12px;margin:12px 0}
-  .howto-card{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:14px}
-  .howto-card h3{margin:0 0 8px;font-size:1.02rem;color:var(--primary)}
-  .howto-card ol,.howto-card ul{margin:6px 0;padding-left:1.25em}
-  .howto-card li{margin:4px 0}
-  .safe{background:var(--danger-soft);border-left:4px solid var(--danger);border-radius:10px;padding:10px 12px;font-size:0.9rem;margin-top:12px}
-  .ex-steps{margin:8px 0 0;padding-left:1.2em;font-size:0.92rem}
-  .ex-steps li{margin:5px 0}
-  .ex .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:0.78rem;padding:2px 8px;border-radius:999px;margin-left:6px}
+  .howto-card h3 { margin: 0 0 8px; font-size: 1.02rem; color: var(--primary); }
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 750;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+  .share-ico { display: inline-flex; vertical-align: -5px; margin: 0 2px; color: var(--primary); }
+  html.standalone #homescreen,
+  html.standalone a[href="#homescreen"] { display: none; }
+  @media (min-width: 640px) {
+    .card { padding: 20px; }
+    .med-grid { grid-template-columns: 1fr 1fr; }
+    .shop { grid-template-columns: 1fr 1fr; }
+    .span-2 { grid-column: 1 / -1; }
+  }
 </style>
+<script>
+try {
+  if (navigator.standalone === true || matchMedia("(display-mode: standalone)").matches) {
+    document.documentElement.classList.add("standalone");
+  }
+} catch (e) {}
+</script>
 </head>
 <body>
+<header class="appbar">
+  <div>
+    <p class="kicker">第二週 · 生活方式</p>
+    <h1>血脂計劃</h1>
+  </div>
+  <button type="button" class="appbar-btn" id="todayBtn" data-open-plan="today">今日打卡</button>
+</header>
 <div class="wrap">
 <div id="mainView">
-  <h1 class="page-title">七天血脂生活方式規劃</h1>
+  <div class="disclaimer">
+    <strong>免責聲明：</strong>本頁只供生活方式參考與自我整理，不是醫療診斷或處方。是否用藥、劑量與檢查，必須由醫生當面評估後決定。頁面不展示任何人的化驗結果。
+  </div>
 
-
-  <nav class="toc">
-    <a href="#labs">目標</a>
-    <a href="#meds">藥物記錄</a>
-    <a href="#plan">七日計劃</a>
-    <a href="#risk">完整風險評估</a>
-    <a href="#exercise">運動總覽</a>
-    <a href="#supplements">可選補充</a>
-    <a href="#shopping">購物清單</a>
-    <a href="#tips">要點提示</a>
-  </nav>
-
-  <section class="card" id="labs">
-    <h2>① 目標</h2>
-    <p>目標：降低 LDL（低密度膽固醇），並維持良好 HDL。</p>
-    <div class="tip">
-      <strong>解讀重點：</strong>降低心血管風險的主要靶點是 LDL。HDL 良好屬保護因素，但不能抵銷 LDL 偏高的影響。建議補查甘油三酯，並由醫生作完整風險評估（血壓、糖尿病、吸煙、家族史、年齡等）。
-    </div>
-    <div class="progress" aria-hidden="true"><span id="weekProgress"></span></div>
-    <div class="progress-label" id="weekProgressLabel">本週清單完成度：0%</div>
-  </section>
-
-  <section class="card" id="meds">
-    <h2>② 藥物記錄（待醫生確認）</h2>
-    <p style="margin-top:0;color:var(--muted);font-size:0.92rem;">
-      以下欄位供記錄<strong>醫生已處方</strong>的藥物。本表<strong>不預設</strong>你已服用阿托伐他汀（Lipitor）或其他他汀；常見起始劑量僅供與醫生討論時參考。
-    </p>
-    <div class="med-grid">
-      <div>
-        <label for="drugName"><strong>藥物名稱</strong></label>
-        <input type="text" id="drugName" placeholder="例如：阿托伐他汀（待醫生確認）" data-persist="drugName">
-      </div>
-      <div>
-        <label for="drugDose"><strong>劑量與時間</strong></label>
-        <input type="text" id="drugDose" placeholder="例如：10–20 mg，每晚一次（待確認）" data-persist="drugDose">
-      </div>
-      <div>
-        <label for="drugStatus"><strong>目前狀態</strong></label>
-        <select id="drugStatus" data-persist="drugStatus">
-          <option value="pending">待醫生確認／尚未處方</option>
-          <option value="prescribed">已獲處方，依醫囑服用</option>
-          <option value="declined">醫生暫不建議用藥，先生活方式</option>
-        </select>
-      </div>
-      <div>
-        <label for="drugNote"><strong>副作用／備註</strong></label>
-        <input type="text" id="drugNote" placeholder="例如：肌肉酸痛、胃部不適等，應告知醫生" data-persist="drugNote">
-      </div>
-    </div>
-    <div class="tip" style="margin-top:12px;">
-      參考資訊（非處方）：中等強度他汀常見起始為阿托伐他汀 10–20 mg；用藥後通常 4–12 週覆查血脂。最終劑量與是否用藥，一律由醫生決定。
-    </div>
+  <section class="card" id="homescreen">
+    <h2>加到 iPhone 主畫面</h2>
+    <p class="hint">用 Safari 開啟本頁後，可從主畫面像 App 一樣進入。請在這一頁（總覽）時加入。</p>
+    <ol class="clean">
+      <li>用 <strong>Safari</strong> 打開本頁（請用一般瀏覽，不要用私密瀏覽或其他 App 內建瀏覽器）。</li>
+      <li>點一下底部或頂部工具列的<strong>分享</strong>
+        <span class="share-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" focusable="false">
+            <path d="M12 16V4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 8 12 4l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        按鈕。</li>
+      <li>在選單向下滑，點一下<strong>加入主畫面</strong>。若沒有看到，再向下滑，或點「編輯動作」把它加出來。</li>
+      <li>名稱可保持「血脂計劃」，再點右上角<strong>加入</strong>。</li>
+    </ol>
+    <p class="tip" style="margin-bottom:0">加入後從主畫面圖示開啟，會以全螢幕顯示。打卡仍只存在這部手機的 Safari；清除網站資料或換手機後，記錄不會跟著走。</p>
   </section>
 
   <section class="card" id="week">
-    <button type="button" class="plan-entry" id="openPlan"><span>📅 七日計劃<small>每日飲食、運動、服藥打卡 · 點擊進入</small></span><span>›</span></button>
+    <button type="button" class="plan-entry" data-open-plan="keep">
+      <span>第二週 · 七日計劃<small id="planEntrySub">每日飲食、運動、打卡 · 一至日可切換</small></span>
+      <span aria-hidden="true">›</span>
+    </button>
+    <div class="progress" id="weekProgressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="weekProgressLabel"><span id="weekProgress"></span></div>
+    <div class="progress-label" id="weekProgressLabel">本週清單完成度：0%</div>
   </section>
 
-  <section class="card" id="risk">
-    <h2>③-2 完整風險評估（自我整理）</h2>
-    <p style="margin-top:0;color:var(--muted);font-size:0.92rem;">所有欄位均可留空。輸入內容只儲存於本機瀏覽器，方便覆診時整理資料。</p>
-    <div class="rf-grid">
-      <div><label for="rf_age">年齡</label><input type="number" inputmode="numeric" id="rf_age" min="18" max="100"></div>
-      <div><label for="rf_sex">性別</label><select id="rf_sex"><option value="">—</option><option value="m">男</option><option value="f">女</option></select></div>
-      <div><label for="rf_sbp">收縮壓（mmHg）</label><input type="number" inputmode="numeric" id="rf_sbp"></div>
-      <div><label for="rf_bpmed">服用降壓藥</label><select id="rf_bpmed"><option value="">—</option><option value="y">是</option><option value="n">否</option></select></div>
-      <div><label for="rf_smoke">吸煙</label><select id="rf_smoke"><option value="">—</option><option value="y">是</option><option value="n">否</option></select></div>
-      <div><label for="rf_dm">糖尿病</label><select id="rf_dm"><option value="">—</option><option value="y">是</option><option value="n">否</option></select></div>
-      <div><label for="rf_fh">早發心血管病家族史</label><select id="rf_fh"><option value="">—</option><option value="y">有</option><option value="n">無</option></select></div>
-      <div><label for="rf_tc">總膽固醇（mmol/L）</label><input type="number" inputmode="decimal" step="0.01" id="rf_tc"></div>
-      <div><label for="rf_ldl">LDL（mmol/L）</label><input type="number" inputmode="decimal" step="0.01" id="rf_ldl"></div>
-      <div><label for="rf_hdl">HDL（mmol/L）</label><input type="number" inputmode="decimal" step="0.01" id="rf_hdl"></div>
-      <div><label for="rf_tg">甘油三酯（mmol/L，選填）</label><input type="number" inputmode="decimal" step="0.01" id="rf_tg"></div>
+  <nav class="toc" aria-label="頁面章節">
+    <a href="#goal">目標</a>
+    <a href="#plan">七日計劃</a>
+    <a href="#meds">藥物</a>
+    <a href="#exercise">運動</a>
+    <a href="#reminders">覆診</a>
+    <a href="#shopping">購物</a>
+    <a href="#tips">要點</a>
+    <a href="#homescreen">加入主畫面</a>
+  </nav>
+
+  <section class="card" id="goal">
+    <h2>① 目標（通用說明）</h2>
+    <p class="hint">本頁是第二週的飲食與運動安排。低密度脂蛋白膽固醇（LDL）通常是降低心血管風險時的首要靶點。下面的數字是教育參考，不是任何人的檢驗結果。</p>
+    <div class="nums">
+      <div class="num goal">
+        <div class="label">低危人群 LDL 目標</div>
+        <div class="val">&lt; 3.4</div>
+        <div class="tag">mmol/L · 教育參考</div>
+      </div>
+      <div class="num goal">
+        <div class="label">本週中等強度活動</div>
+        <div class="val">160–200</div>
+        <div class="tag">分鐘</div>
+      </div>
     </div>
-    <div class="rf-out">
-      <div class="box" id="rf_nonhdl">非 HDL 膽固醇（總膽固醇 − HDL）：輸入總膽固醇及 HDL 後顯示</div>
-      <div class="box" id="rf_ldlout">LDL 分級：輸入 LDL 後顯示</div>
-      <div class="box" id="rf_factors">風險因素：—</div>
+    <ul class="clean">
+      <li>低危人群常見的 LDL 教育目標是 <strong>&lt; 3.4 mmol/L</strong>。個人是否屬於低危、目標要定在哪裡，必須由醫生按完整資料判斷。</li>
+      <li>高密度脂蛋白膽固醇（HDL）較高屬保護因素，但不能抵銷 LDL 偏高。</li>
+      <li>總膽固醇是各類膽固醇的總和；甘油三酯是另一項血脂，需要另外檢驗。</li>
+      <li>指南裡較常被直接視為較高風險的情況包括：LDL ≥ 4.9 mmol/L、總膽固醇 ≥ 7.2 mmol/L、糖尿病或慢性腎病等。這些是分層門檻，不是某人的結果。</li>
+    </ul>
+    <h3>LDL 參考分級（mmol/L，教育用）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>LDL</th><th>分級</th></tr></thead>
+        <tbody>
+          <tr><td>&lt; 2.6</td><td>理想</td></tr>
+          <tr><td>2.6 – 3.3</td><td>接近理想</td></tr>
+          <tr><td>3.4 – 4.0</td><td>邊緣偏高</td></tr>
+          <tr><td>4.1 – 4.8</td><td>偏高</td></tr>
+          <tr><td>≥ 4.9</td><td>甚高</td></tr>
+        </tbody>
+      </table>
     </div>
-    <h3>LDL 參考分級（mmol/L）</h3>
-    <table>
-      <thead><tr><th>LDL</th><th>分級</th></tr></thead>
-      <tbody>
-        <tr><td>&lt; 2.6</td><td>理想</td></tr>
-        <tr><td>2.6 – 3.3</td><td>接近理想</td></tr>
-        <tr><td>3.4 – 4.0</td><td>邊緣偏高</td></tr>
-        <tr><td>4.1 – 4.8</td><td>偏高</td></tr>
-        <tr><td>≥ 4.9</td><td>甚高</td></tr>
-      </tbody>
-    </table>
-    <div class="tip">
-      <strong>注意：</strong>本表只列出風險因素數目，並非正式風險評分。正式的 10 年心血管風險評估（例如 China-PAR、SCORE2、Framingham）及個人 LDL 目標，必須由醫生按完整資料計算和判斷。<br>
-      <strong>覆診時宜帶備：</strong>甘油三酯、空腹血糖／HbA1c、肝功能、腎功能、近期血壓記錄，以及現用藥物清單。
+    <div class="tip">正式的 10 年心血管風險評估，以及個人 LDL 目標，請由醫生計算。本頁不會預先寫上任何人的化驗結果。</div>
+  </section>
+
+  <section class="card" id="meds">
+    <h2>② 藥物記錄<span class="badge">待醫生決定</span></h2>
+    <p class="hint">低危時，指南多數先建議認真做生活方式，他汀不是人人都要立刻開始。以下欄位只供記下醫生的決定。討論時可提及阿托伐他汀 10 mg，作為中等強度起始的常見參考；是否用藥與劑量一律由醫生決定。未有處方前，不要自行開始他汀，也不要自行加食紅麴。</p>
+    <div class="med-grid">
+      <div>
+        <label class="field" for="drugName">藥物名稱</label>
+        <input type="text" id="drugName" autocomplete="off" placeholder="例如：阿托伐他汀（待醫生決定）" data-persist="drugName">
+      </div>
+      <div>
+        <label class="field" for="drugDose">劑量與時間</label>
+        <input type="text" id="drugDose" autocomplete="off" placeholder="討論參考：10 mg，每晚一次（待確認）" data-persist="drugDose">
+      </div>
+      <div>
+        <label class="field" for="drugStatus">目前狀態</label>
+        <select id="drugStatus" data-persist="drugStatus">
+          <option value="lifestyle">先做生活方式（3–6 個月）</option>
+          <option value="pending">待醫生決定／尚未處方</option>
+          <option value="prescribed">已獲處方，依醫囑服用</option>
+          <option value="declined">醫生暫不建議用藥</option>
+        </select>
+      </div>
+      <div>
+        <label class="field" for="drugNote">副作用／備註</label>
+        <input type="text" id="drugNote" autocomplete="off" placeholder="例如：肌肉酸痛、胃部不適，應告知醫生" data-persist="drugNote">
+      </div>
     </div>
   </section>
 
   <section class="card" id="exercise">
-    <h2>④ 運動總覽（教你怎麼做）</h2>
-    <p style="margin-top:0">本週目標約 <strong>150–180 分鐘</strong>中等強度活動。關鍵不是「去運動」，而是<strong>每一步怎麼做</strong>。下面用「邊走邊說話測試：能講完整句但唱不出歌」來判斷強度是否剛好。</p>
-
-    <h3>怎樣判斷「中等強度」</h3>
+    <h2>③ 運動怎麼做</h2>
+    <p class="hint">目標約 <strong>160–200 分鐘</strong>中等強度（比第一週略增）。用「說話測試」判斷強度：能講完整句，但唱不出歌。</p>
+    <h3>每次三段式</h3>
     <ul class="clean">
-      <li><strong>說話測試：</strong>邊做邊說話——可以說完整句，但唱不出歌；若氣喘到講不完一句，就放慢。</li>
-      <li><strong>心率簡算：</strong>目標大約最大心率的 50–70%。最大心率可用 <strong>220 − 年齡</strong>（例如 40 歲 → 約 180；中等強度約 90–126 下／分鐘）。有心跳帶或手錶更好，沒有就靠說話測試。</li>
-      <li><strong>感覺：</strong>微微出汗、呼吸加快，但仍可維持對話。</li>
+      <li><strong>熱身 5 分鐘：</strong>慢走或原地輕踏，轉肩、轉踝。</li>
+      <li><strong>主運動：</strong>做當日指定的快走、踏步或肌力。</li>
+      <li><strong>緩和 5 分鐘：</strong>慢走，再加上小腿、大腿前側、胸口伸展。</li>
     </ul>
-
-    <h3>每次運動的結構（記住這三段）</h3>
-    <ul class="clean">
-      <li><strong>熱身 5 分鐘：</strong>慢走或原地輕踏，把關節活動開（轉肩、轉踝）。</li>
-      <li><strong>主運動：</strong>選下面 A／B／C 其中一種（或當日指定）。</li>
-      <li><strong>緩和 5 分鐘：</strong>慢走＋簡單伸展（小腿、大腿前側、胸口），不要突然停下來站着不動。</li>
-    </ul>
-
     <div class="howto">
       <div class="howto-card">
-        <h3>A. 快走（最推薦，戶外或商場）</h3>
-        <ol>
-          <li><strong>姿勢：</strong>抬頭望前方（勿低頭看手機）、肩放鬆、手自然前後擺臂；腳跟先着地，再滾到腳掌前掌，步幅自然略大。</li>
-          <li><strong>配速：</strong>約每小時 5–6 公里，或感覺稍喘但仍能邊走邊說話。若跟不上，先維持「說話測試」的節奏即可。</li>
-          <li><strong>時間：</strong>每次主運動 30–40 分鐘；忙時可拆成 <strong>2 × 15–20 分鐘</strong>，效果一樣計入。</li>
-          <li><strong>檢查：</strong>途中每 10 分鐘做一次說話測試，調整快慢。</li>
+        <h3>A. 快走（戶外或商場）</h3>
+        <ol class="clean">
+          <li><strong>姿勢：</strong>抬頭望前方、肩放鬆、手自然擺臂；腳跟先着地，再滾到前掌。</li>
+          <li><strong>配速：</strong>約每小時 5–6 公里，或維持說話測試。第二週可試把主段多加 5 分鐘。</li>
+          <li><strong>時間：</strong>主運動 30–40 分鐘；忙的話可拆成 <strong>2 × 15–20 分鐘</strong>。</li>
         </ol>
       </div>
       <div class="howto-card">
         <h3>B. 原地踏步／行樓梯（下雨或夜班後）</h3>
-        <ol>
-          <li><strong>原地踏步：</strong>膝蓋抬到約大腿與地面平行（或你舒適的高度），雙臂同步擺動；每分鐘大約 <strong>100–120 步</strong>（跟着手機節拍器亦可）。</li>
-          <li><strong>怎樣踩：</strong>全腳掌或前掌柔和落地，勿用腳尖重跺；核心微收，腰背挺直。</li>
-          <li><strong>行樓梯：</strong>上一層再下一層循環；手可輕扶欄杆保持平衡，<strong>勿整隻手用力拉着爬</strong>。一步一階，不要跨兩階。</li>
-          <li><strong>時間：</strong>主運動 20–30 分鐘；可做 5 分鐘踏步 → 休息 1 分鐘喝水 → 再重複。</li>
+        <ol class="clean">
+          <li>膝蓋抬至舒適高度，雙臂擺動；約每分鐘 100–120 步。</li>
+          <li>行樓梯：一步一階，輕扶欄杆，不要整隻手拉着爬，也不要跨兩階。</li>
+          <li>可做 5 分鐘踏步、休息 1 分鐘，再重複，共 20–30 分鐘。</li>
         </ol>
       </div>
       <div class="howto-card">
-        <h3>C. 簡單肌力（隔天，在家 15–20 分鐘）</h3>
-        <p style="margin:0 0 8px;font-size:0.92rem;">每個動作 <strong>8–12 下 × 2–3 組</strong>；組與組之間休息 <strong>45–60 秒</strong>。動作要慢控，不要借力甩。</p>
-        <ol>
-          <li><strong>靠牆深蹲：</strong>背貼牆，雙腳與肩同寬、離牆約兩腳掌；慢慢屈膝下滑至大腿約與地面平行（膝蓋勿超過腳尖太多），停留 1 秒再推起。膝蓋不適可少蹲深一點。</li>
-          <li><strong>靠牆俯卧撑：</strong>雙手撑牆、與肩同寬，身體成一直線；手肘彎曲讓胸口靠近牆，再推開。太易可把腳再後退一點加難度。</li>
-          <li><strong>平板支撑：</strong>肘與肩垂直，身體成一直線，收腹；維持 <strong>20–40 秒</strong>。手腕或腰不適可用<strong>膝蓋着地變式</strong>（仍保持背直）。</li>
+        <h3>C. 簡單肌力（隔日，在家 15–25 分鐘）</h3>
+        <p class="hint">每個動作 <strong>10–12 下 × 3 組</strong>，組與組之間休息 45–60 秒，動作慢控，不要借力甩。</p>
+        <ol class="clean">
+          <li><strong>靠牆深蹲：</strong>背貼牆，雙腳與肩同寬。慢慢下滑至舒適深度，膝蓋對準腳尖方向，再站起。</li>
+          <li><strong>靠牆俯卧撑：</strong>雙手撑牆，身體成一直線。太容易就把腳再後退一點。</li>
+          <li><strong>平板支撑：</strong>維持 20–45 秒。腰不適可用膝蓋着地的變式，仍然保持背直。</li>
+          <li><strong>第二週可加臀橋：</strong>仰臥屈膝，抬臀至身體成一直線，頂端停 1 秒再慢落，10–12 下 × 2 組。</li>
         </ol>
       </div>
     </div>
-
     <div class="safe">
-      <strong>安全：</strong>出現胸痛、頭暈、噁心、氣喘發作或單側無力 → <strong>立刻停止</strong>並求醫。勿空腹做劇烈運動；飯後約 1 小時再開始較妥。穿穩固平底運動鞋，地面濕滑勿強行。若已服用他汀而出現不明肌肉痛，告知醫生後再決定是否暫停訓練。
+      <strong>安全：</strong>出現胸痛、頭暈、噁心、氣喘發作或單側無力，立刻停止並求醫。不要空腹做劇烈運動；飯後約 1 小時再開始較妥。穿穩固的平底運動鞋。若日後服用他汀而出現原因不明的肌肉痛，先告知醫生，再決定是否暫停訓練。
     </div>
-
     <h3>本週日程一覽</h3>
-    <table>
-      <thead>
-        <tr><th>日</th><th>當日主項</th><th>約計</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>一</td><td>快走日（熱身→快走→緩和）</td><td>35 分</td></tr>
-        <tr><td>二</td><td>肌力日（靠牆深蹲／俯卧撑／平板）</td><td>20 分</td></tr>
-        <tr><td>三</td><td>快走或原地踏步</td><td>35 分</td></tr>
-        <tr><td>四</td><td>肌力日</td><td>20 分</td></tr>
-        <tr><td>五</td><td>快走日</td><td>40 分</td></tr>
-        <tr><td>六</td><td>較長快走／輕行山</td><td>45 分</td></tr>
-        <tr><td>日</td><td>輕量日：慢走＋伸展</td><td>20 分</td></tr>
-      </tbody>
-    </table>
-    <p class="tip" style="margin-bottom:0">進入「七日計劃」後，每一天都有<strong>逐步指令</strong>，照着做即可。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>日</th><th>當日主項</th><th>約計</th></tr></thead>
+        <tbody>
+          <tr><td>一</td><td>快走日</td><td>40 分</td></tr>
+          <tr><td>二</td><td>肌力日（含臀橋）</td><td>22 分</td></tr>
+          <tr><td>三</td><td>快走或原地踏步</td><td>35 分</td></tr>
+          <tr><td>四</td><td>肌力日</td><td>22 分</td></tr>
+          <tr><td>五</td><td>快走日</td><td>40 分</td></tr>
+          <tr><td>六</td><td>較長步行／輕行山</td><td>50 分</td></tr>
+          <tr><td>日</td><td>輕量日：慢走加伸展</td><td>20 分</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <section class="card" id="supplements">
-    <h2>⑤ 可選補充（先問醫生）</h2>
-    <div class="opt-note">
-      <strong>總膽固醇不是甘油三酯：</strong>總膽固醇是 LDL、HDL 等各類膽固醇的總和；甘油三酯是另一種血脂，須另外驗。<br>
-      補充品<strong>不能取代</strong>飲食調整與必要時的他汀治療。開始任何補充前，請先諮詢醫生或藥劑師，尤其是已服用處方藥者。
+  <section class="card" id="reminders">
+    <h2>④ 覆診時可以問</h2>
+    <div class="remind">
+      <ul class="clean" style="margin:0">
+        <li><strong>家族史：</strong>若直系親屬較早有冠心病或中風，覆診時說明是哪一位、大約幾歲。發病年齡越早，越需要讓醫生把家族史算進去。</li>
+        <li><strong>脂蛋白(a)：</strong>Lp(a) 偏高會增加長期風險，通常一生測一次即可。是否加驗由醫生決定。</li>
+        <li><strong>一併了解：</strong>血壓、空腹血糖或 HbA1c、體重，避免之後多了其他危險因素仍不知道。</li>
+        <li><strong>生活方式 3–6 個月後：</strong>覆查血脂（LDL、總膽固醇、HDL、甘油三酯），再決定是否討論他汀。</li>
+      </ul>
     </div>
-    <table>
-      <thead>
-        <tr><th>項目</th><th>可能用途</th><th>注意</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>可溶性纖維補充<br>（車前子殼／洋車前子）</td>
-          <td>輔助降低 LDL；亦可先靠燕麥、豆類、蔬果達標</td>
-          <td>多喝水；可能影響部分藥物吸收，與藥物間隔服用</td>
-        </tr>
-        <tr>
-          <td>植物固醇／甾醇<br>（強化牛奶、補充劑）</td>
-          <td>有證據可輕度降低 LDL</td>
-          <td>依產品標示劑量；非人人需要</td>
-        </tr>
-        <tr>
-          <td>Omega-3（魚油）</td>
-          <td>主要降低甘油三酯，對 LDL 幫助有限；只在驗出甘油三酯偏高且醫生同意時才考慮</td>
-          <td>出血傾向、抗凝藥使用者需醫生評估</td>
-        </tr>
-        <tr>
-          <td>紅麴（red yeast rice）</td>
-          <td>含類似他汀成分</td>
-          <td><strong>若已服用或將服用他汀，不宜自行併用</strong>；有肝臟與肌肉風險，必須問醫生</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="med-grid" style="margin-top:12px">
+      <div>
+        <label class="field" for="familyNote">家族史備註（選填）</label>
+        <input type="text" id="familyNote" autocomplete="off" placeholder="例如：哪一位親屬、大約年齡" data-persist="familyNote">
+      </div>
+      <div>
+        <label class="field" for="lpaStatus">Lp(a) 檢查</label>
+        <select id="lpaStatus" data-persist="lpaStatus">
+          <option value="todo">尚未檢查 · 覆診時提出</option>
+          <option value="asked">已向醫生提出</option>
+          <option value="done">已驗 · 細節只寫在備註</option>
+          <option value="na">醫生認為暫不需要</option>
+        </select>
+      </div>
+      <div class="span-2">
+        <label class="field" for="recheckNote">覆查備註</label>
+        <textarea id="recheckNote" autocomplete="off" data-persist="recheckNote" placeholder="例如：計劃哪一個月覆查、想問醫生的問題。若要自記數字，只會留在這部手機。"></textarea>
+      </div>
+    </div>
   </section>
 
   <section class="card" id="shopping">
-    <h2>⑥ 本週購物清單（澳門超市／街市易買）</h2>
+    <h2>⑤ 本週購物清單（澳門超市／街市）</h2>
     <div class="shop">
       <div class="shop-box">
-        <h4>主食與纖維</h4>
+        <h3>主食與可溶性纖維</h3>
         <ul class="clean">
-          <li>即食燕麥片、全麥包、糙米或五穀米</li>
-          <li>豆腐、荳腐泡、鷹嘴豆／紅豆／眉豆</li>
-          <li>番薯、玉米、馬鈴薯（少油焗或蒸）</li>
+          <li>即食燕麥、全麥包、糙米／五穀米、蕎麥麵</li>
+          <li>豆腐、豆漿（無糖）、紅豆／眉豆／鷹嘴豆</li>
+          <li>番薯、玉米、淮山、馬鈴薯（蒸或焗）</li>
         </ul>
       </div>
       <div class="shop-box">
-        <h4>蛋白質</h4>
+        <h3>蛋白質</h3>
         <ul class="clean">
-          <li>雞胸肉、瘦豬肉（去皮去肥）、雞蛋</li>
-          <li>魚（鯇魚、鱈魚、三文魚、黃花魚等，清蒸為佳）</li>
-          <li>去殼蝦、低脂乳酪或脫脂／低脂奶</li>
+          <li>雞胸或去皮雞腿、瘦豬柳（去肥）</li>
+          <li>鯇魚、黃花魚、鱈魚、三文魚（清蒸）</li>
+          <li>蝦、雞蛋、低脂乳酪、脫脂或低脂奶</li>
         </ul>
       </div>
       <div class="shop-box">
-        <h4>蔬菜水果</h4>
+        <h3>蔬菜水果</h3>
         <ul class="clean">
-          <li>菜心、芥蘭、菠菜、西兰花、番茄、青瓜</li>
-          <li>菇類、胡蘿蔔、洋蔥、蒜頭</li>
-          <li>蘋果、香蕉、橙、奇異果、莓果（急凍亦可）</li>
+          <li>菜心、通菜、菠菜、西兰花、芥蘭</li>
+          <li>番茄、青瓜、茄子、菇類、洋蔥、薑蒜</li>
+          <li>蘋果、橙、香蕉、奇異果、木瓜、莓果</li>
         </ul>
       </div>
       <div class="shop-box">
-        <h4>健康脂肪與調味</h4>
+        <h3>調味，以及少買的</h3>
         <ul class="clean">
-          <li>特級初榨橄欖油、少量堅果（杏仁、核桃）</li>
-          <li>亞麻籽或芝麻（少許）</li>
-          <li>生抽、黑醋、胡椒、薑、香草；少用豬油、奶油、椰漿</li>
+          <li>橄欖油、少量杏仁／核桃</li>
+          <li>生抽、黑醋、胡椒、香草；少用豬油、奶油、椰漿</li>
+          <li>宜少買：肥肉、內臟、油炸小吃、加工肉腸、奶油蛋糕</li>
         </ul>
       </div>
     </div>
     <div class="tip">
-      <strong>宜少買／避免：</strong>肥肉、內臟、奶油蛋糕、全脂芝士、油炸小吃、人造奶油酥皮、加工肉腸。出外用膳可選清蒸魚、白切雞（去皮）、菜湯河粉（少油），要求少油少汁。
+      <strong>出外或醫院食堂：</strong>選清蒸魚、白切雞（去皮）、白切菜、番茄蛋花湯，要求少油少汁。少點叉燒、燒肉、咖喱、奶油汁和炸物。街市早餐可改白粥、白煮蛋和青菜，少油條、少叉燒。
     </div>
   </section>
 
   <section class="card" id="tips">
-    <h2>⑦ 要點提示</h2>
+    <h2>⑥ 要點</h2>
     <ul class="clean">
-      <li><strong>首要目標是 LDL</strong>，總膽固醇與非 HDL 偏高作為佐證；HDL 良好值得保持，但不能抵銷 LDL 風險。</li>
-      <li><strong>飲食通常比單靠運動更能降低 LDL</strong>；運動有助體重、血壓與 HDL。</li>
-      <li>生活方式調整後，宜依醫生指示定期覆查血脂；若已用他汀，常見於 4–12 週覆查。</li>
-      <li>輪班日子：預先煮好兩日份蛋白質與蔬菜，用盒飯保溫；宵夜選燕麥＋水果，避免油炸。</li>
-      <li>本頁打卡資料只存在你的瀏覽器（localStorage），不會上傳至任何伺服器。</li>
+      <li>方向是把 LDL 拉近低危人群的教育目標 <strong>&lt; 3.4 mmol/L</strong>。HDL 良好要保持，但不能抵銷 LDL 偏高。</li>
+      <li><strong>調整飲食通常比單靠運動更能降低 LDL</strong>；運動有助血壓、體重與 HDL。</li>
+      <li>總膽固醇不是甘油三酯。魚油主要降低甘油三酯，對 LDL 幫助有限；未驗甘油三酯、也未問過醫生之前，不必先買魚油。</li>
+      <li>輪班的日子：預先煮好兩日份的蛋白質和蔬菜。宵夜選燕麥加水果，避免油炸。</li>
+      <li>每日可溶性纖維可以靠燕麥、豆類、蔬菜和水果湊出來，不必一開始就吃補充劑。</li>
+      <li>開啟頁面需要網絡。打卡、藥物和備註只存在這部手機的瀏覽器（localStorage），不會上傳。</li>
     </ul>
   </section>
 
   <footer>
-    生活方式參考頁 · 非醫療處方 · 請與主診醫生討論個人化方案<br>資料只儲存於本機瀏覽器，不會上傳
+    第二週生活方式參考 · 非醫療處方 · 請與主診醫生討論個人方案<br>
+    低危人群 LDL 目標對照《中國血脂管理指南（2023年）》整理 · 記錄只儲存於本機瀏覽器
   </footer>
 </div>
+
 <div id="planView">
   <div class="plan-top">
-    <div class="row"><button type="button" class="secondary" id="backMain">‹ 返回</button><h2 id="planTitle">七日計劃</h2></div>
-    <div class="tabs" id="tabs"></div>
+    <div class="row">
+      <button type="button" id="backMain">‹ 返回</button>
+      <h2 id="planTitle">七日計劃</h2>
+    </div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="星期"></div>
   </div>
   <div id="days"></div>
-  <div class="progress" aria-hidden="true"><span id="planProgress"></span></div>
+  <div class="progress" id="planProgressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="planProgressLabel"><span id="planProgress"></span></div>
   <div class="progress-label" id="planProgressLabel"></div>
 </div>
 </div>
@@ -573,198 +652,218 @@
     {
       id: 1, title: "星期一 · 快走日",
       meals: {
-        b: "即食燕麥片＋低脂奶＋香蕉半條；或不加糖豆漿＋全麥包一小片",
-        l: "糙米飯半碗＋清蒸魚＋炒菜心（少油）；湯：番茄豆腐湯",
-        d: "雞胸肉沙律碗（生菜、青瓜、番茄、橄欖油黑醋汁）＋番薯一塊",
-        s: "蘋果一個或無糖乳酪"
+        b: "燕麥片＋低脂奶＋奇異果半個；或不加糖豆漿＋全麥包一小片＋番茄",
+        l: "五穀飯半碗＋清蒸鯇魚／黃花魚＋蒜蓉菠菜；湯：冬瓜豆腐湯（撇油）",
+        d: "去皮白切雞胸＋大量菜心（少油）＋番薯一塊",
+        s: "蘋果一個"
       },
-      exercise: "快走 35 分鐘（三段式）",
+      exercise: "快走 40 分鐘（三段式）",
       exerciseHtml: `<ol class="ex-steps">
         <li><strong>熱身 5 分鐘：</strong>慢走，擺臂，轉轉肩踝。</li>
-        <li><strong>主運動 25 分鐘快走：</strong>抬頭、擺臂、腳跟先着地；配速以「能講完整句但唱不出歌」為準。</li>
+        <li><strong>主運動 30 分鐘快走：</strong>抬頭、擺臂、腳跟先着地；配速以「能講完整句但唱不出歌」為準。</li>
         <li><strong>途中檢查：</strong>每 10 分鐘做一次說話測試，太喘就放慢 1–2 分鐘再加速。</li>
-        <li><strong>緩和 5 分鐘：</strong>慢走，小腿與大腿前側各伸展 20 秒。</li>
-        <li>忙則改 <strong>2 × 15–20 分鐘</strong>同款快走，中間可休息。</li>
+        <li><strong>緩和 5 分鐘：</strong>慢走，小腿與大腿前側各伸展 20–30 秒。</li>
+        <li>忙則改 <strong>2 × 20 分鐘</strong>同款快走。</li>
       </ol>`,
-      mins: 35
+      mins: 40
     },
     {
       id: 2, title: "星期二 · 肌力日",
       meals: {
-        b: "雞蛋一隻水煮／炒（少油）＋全麥多士＋番茄",
-        l: "豆腐煮魚湯河粉（少油）＋額外青菜",
-        d: "蒜蓉西兰花炒瘦肉絲（去肥）＋五穀飯半碗",
-        s: "一小把無鹽杏仁（約 10 粒）"
+        b: "水煮蛋一隻＋全麥多士＋青瓜；茶或咖啡不加全脂奶精",
+        l: "蕎麥麵＋蝦仁＋西兰花（少油）；或醫院食堂選清蒸魚＋白切菜＋半碗飯",
+        d: "紅燒豆腐（少糖少油）＋炒通菜＋糙米半碗",
+        s: "一小把無鹽杏仁（約 8–10 粒）"
       },
-      exercise: "家中肌力 15–20 分鐘",
+      exercise: "家中肌力約 22 分鐘",
       exerciseHtml: `<ol class="ex-steps">
-        <li><strong>熱身 3–5 分鐘：</strong>原地踏步＋開合肩。</li>
-        <li><strong>靠牆深蹲：</strong>10 下 × 3 組（組間休息 45–60 秒）。背貼牆下滑至舒適深度，膝蓋對準腳尖方向。</li>
-        <li><strong>靠牆俯卧撑：</strong>8–10 下 × 3 組。身體成直線，胸口靠近牆再推開。</li>
-        <li><strong>平板支撑：</strong>20–40 秒 × 2 組；膝蓋着地變式亦可，重點是背直、收腹。</li>
+        <li><strong>熱身 3–5 分鐘：</strong>原地踏步，再開合肩。</li>
+        <li><strong>靠牆深蹲：</strong>10–12 下 × 3 組（組間休息 45–60 秒）。</li>
+        <li><strong>靠牆俯卧撑：</strong>10 下 × 3 組。身體成直線。</li>
+        <li><strong>臀橋：</strong>10–12 下 × 2 組。仰臥屈膝，抬臀至身體成一直線，頂端停 1 秒再慢落。</li>
+        <li><strong>平板支撑：</strong>25–40 秒 × 2 組；膝蓋着地的變式亦可。</li>
         <li><strong>緩和：</strong>站姿體前彎（微屈膝）20 秒，深呼吸 5 次。</li>
       </ol>`,
-      mins: 20
+      mins: 22
     },
     {
       id: 3, title: "星期三 · 快走／踏步日",
       meals: {
-        b: "燕麥粥＋藍莓或急凍莓果＋少許核桃",
-        l: "白切雞（去皮）＋油菜＋米飯半碗；或醫院食堂選清蒸／白切菜式",
-        d: "蒸水蛋＋炒菇菜＋豆腐",
-        s: "奇異果或橙"
+        b: "燕麥粥＋香蕉半條＋少許核桃碎",
+        l: "番茄蛋花湯河粉（少油）＋額外青菜一碟",
+        d: "清蒸茄子＋瘦肉片（去肥）＋豆腐蒸水蛋＋飯半碗",
+        s: "橙或木瓜一小碟"
       },
       exercise: "快走或原地踏步 35 分鐘",
       exerciseHtml: `<ol class="ex-steps">
         <li><strong>熱身 5 分鐘</strong>慢走或輕踏。</li>
-        <li><strong>選一：</strong>戶外快走 25 分鐘（同星期一姿勢與說話測試）；或<strong>室內原地踏步 25 分鐘</strong>（膝蓋上抬、約每分鐘 100–120 步，可 5 分鐘踏＋1 分鐘休息循環）。</li>
-        <li>夜班後可改行樓梯：上一層下一層，輕扶欄，共約 15–20 分鐘，再補慢走。</li>
-        <li><strong>緩和 5 分鐘</strong>慢走＋伸展。</li>
+        <li><strong>選一：</strong>戶外快走 25 分鐘；或<strong>室內原地踏步 25 分鐘</strong>（約每分鐘 100–120 步，可 5 分鐘踏、1 分鐘休息，循環進行）。</li>
+        <li>夜班後可改行樓梯：上一層、下一層，輕扶欄，共約 15–20 分鐘，再補慢走。</li>
+        <li><strong>緩和 5 分鐘</strong>慢走，加上伸展。</li>
       </ol>`,
       mins: 35
     },
     {
       id: 4, title: "星期四 · 肌力日",
       meals: {
-        b: "低脂奶燕麥＋蘋果丁",
-        l: "蒸茄汁魚（少糖）＋青菜＋糙米半碗",
-        d: "橄欖油蒜香蝦仁意粉（全麥，份量適中）＋沙律",
+        b: "低脂奶燕麥＋藍莓或急凍莓果",
+        l: "白切雞（去皮）＋油菜＋米飯半碗；湯要撇走油面",
+        d: "蒜香橄欖油炒蝦仁＋全麥意粉適中份量＋沙律（黑醋汁）",
         s: "無糖豆漿一杯"
       },
-      exercise: "肌力複習＋可加一組",
+      exercise: "肌力複習＋臀橋",
       exerciseHtml: `<ol class="ex-steps">
         <li><strong>熱身 5 分鐘</strong>原地踏步。</li>
-        <li><strong>靠牆深蹲 10–12 下 × 3</strong>；若星期二已輕鬆，可每組多 2 下，勿勉強加深。</li>
-        <li><strong>靠牆俯卧撑 8–12 下 × 3</strong>；太易就把腳再後退加大角度。</li>
-        <li><strong>平板 25–40 秒 × 2–3</strong>（膝蓋着地亦可）。</li>
-        <li>組間休息 45–60 秒；全程約 20 分鐘。胸痛／暈立刻停。</li>
+        <li><strong>靠牆深蹲 10–12 下 × 3</strong>；若已覺輕鬆，可每組多 2 下，不要勉強蹲得更深。</li>
+        <li><strong>靠牆俯卧撑 10–12 下 × 3</strong>；太容易就把腳再後退。</li>
+        <li><strong>臀橋 12 下 × 2–3</strong>；<strong>平板 30–45 秒 × 2</strong>。</li>
+        <li>組間休息 45–60 秒。胸痛或頭暈立刻停。</li>
       </ol>`,
-      mins: 20
+      mins: 22
     },
     {
       id: 5, title: "星期五 · 快走日",
       meals: {
-        b: "全麥包夾雞蛋＋青瓜；或燕麥＋香蕉",
-        l: "豆角炒瘦肉＋豆腐湯＋飯半碗",
-        d: "清蒸鱈魚／黃花魚＋蒜蓉菠菜＋玉米",
-        s: "乳酪或水果"
+        b: "全麥包夾雞蛋＋番茄；或燕麥＋蘋果丁",
+        l: "豆角炒瘦肉絲（去肥）＋豆腐湯＋飯半碗",
+        d: "清蒸鱈魚或三文魚一小塊＋蒜蓉芥蘭＋玉米一條",
+        s: "低脂乳酪或水果"
       },
       exercise: "快走 40 分鐘（可分段）",
       exerciseHtml: `<ol class="ex-steps">
         <li><strong>熱身 5 分鐘</strong>慢走。</li>
-        <li><strong>快走 30 分鐘：</strong>維持中等強度（說話測試）；可用手機看地圖估算距離約 2.5–3 公里。</li>
-        <li>每 10 分鐘檢查一次能否邊走邊說話；氣喘則放慢。</li>
-        <li><strong>緩和 5 分鐘</strong>。時間緊可拆成早上 20 分＋下班後 20 分。</li>
+        <li><strong>快走 30 分鐘：</strong>維持中等強度；可用手機估算約 2.5–3.5 公里。</li>
+        <li>每 10 分鐘檢查一次說話測試；氣喘就放慢。</li>
+        <li><strong>緩和 5 分鐘</strong>。時間緊可拆成早上 20 分鐘、下班後 20 分鐘。</li>
       </ol>`,
       mins: 40
     },
     {
       id: 6, title: "星期六 · 較長步行",
       meals: {
-        b: "燕麥班戟（少油）＋水果；或雲吞麵改選青菜雲吞、少油蔥",
-        l: "葡國雞改為自家低脂版：去皮雞腿、少椰漿、多蔬菜；或外出選清蒸海鮮",
-        d: "豆腐蔬菜煲＋少量瘦肉片＋飯半碗",
+        b: "燕麥＋香蕉；或街市早餐改選白粥＋白煮蛋＋青菜（少油條、少叉燒）",
+        l: "外出選清蒸海鮮＋白切菜；少點咖喱、奶油汁、炸物",
+        d: "菇類瘦肉煲（撇油）＋豆腐＋飯半碗＋大量蔬菜",
         s: "水果拼盤"
       },
-      exercise: "戶外步行或輕行山 45 分鐘",
+      exercise: "戶外步行或輕行山 50 分鐘",
       exerciseHtml: `<ol class="ex-steps">
-        <li>出發前喝幾口水、穿穩固運動鞋、帶小瓶水。</li>
+        <li>出發前喝水、穿穩固運動鞋、帶小瓶水，並注意防曬。</li>
         <li><strong>熱身 5 分鐘</strong>平路慢走。</li>
-        <li><strong>主段 35 分鐘：</strong>平路快走，或選<strong>緩坡輕行山</strong>（勿選陡峭技術路）。上坡可縮短步幅，仍用說話測試控速。</li>
-        <li>中途可站停 30 秒喝水，不要坐下太久再突然衝刺。</li>
-        <li><strong>緩和 5 分鐘</strong>平路慢走＋小腿伸展。注意防曬。</li>
+        <li><strong>主段 40 分鐘：</strong>平路快走，或選<strong>緩坡輕行山</strong>（不要選陡峭或需要攀爬的路線）。上坡時縮短步幅，仍用說話測試控制速度。</li>
+        <li>中途可站着停 30 秒喝水，不要坐下太久再突然加快。</li>
+        <li><strong>緩和 5 分鐘</strong>平路慢走，加上小腿伸展。</li>
       </ol>`,
-      mins: 45
+      mins: 50
     },
     {
       id: 7, title: "星期日 · 輕量日",
       meals: {
-        b: "雞蛋＋蔬菜＋全麥包；咖啡／茶不加全脂奶精",
-        l: "家庭例湯（去油）＋蒸魚＋大量蔬菜＋飯半碗",
-        d: "輕食：雞胸沙律或豆腐沙拉，橄欖油調味",
-        s: "可選：燕麥餅乾（低糖）或水果"
+        b: "雞蛋＋蔬菜（少油）＋全麥包；咖啡或茶不加奶精",
+        l: "家庭例湯（徹底去油）＋蒸魚＋大量蔬菜＋飯半碗",
+        d: "雞胸沙律碗（生菜、青瓜、番茄、橄欖油黑醋）或豆腐沙拉",
+        s: "可選水果；看看家裡是否仍有肥肉或油炸零食，下週少買"
       },
-      exercise: "慢走＋伸展 20 分鐘（可休息）",
+      exercise: "慢走＋伸展 20 分鐘",
       exerciseHtml: `<ol class="ex-steps">
-        <li>本週較輕一天：以恢復為主，<strong>不要做高強度間歇</strong>。</li>
-        <li><strong>慢走 10–12 分鐘</strong>（社區或走廊即可），呼吸平順。</li>
-        <li><strong>伸展 8–10 分鐘：</strong>小腿、大腿前側、胸口、肩頸各側 20–30 秒，勿彈震拉扯。</li>
-        <li>身體疲勞可改為純休息；回顧本週哪幾天達標，下週一從快走再開始。</li>
+        <li>本週恢復日：<strong>不要做高強度間歇</strong>。</li>
+        <li><strong>慢走 10–12 分鐘</strong>（社區或走廊即可），呼吸保持平順。</li>
+        <li><strong>伸展 8–10 分鐘：</strong>小腿、大腿前側、胸口、肩頸，每側 20–30 秒，不要彈震拉扯。</li>
+        <li>回顧本週打卡。可在「覆診時可以問」記下家族史要點，以及下次覆查月份。下週一從快走再開始。</li>
       </ol>`,
       mins: 20
     }
   ];
 
   const root = document.getElementById("days");
-  const LS_KEY = "ldl7day_v1";
+  const LS_KEY = "ldl7day_week2_v1";
+  const TAB = ["一", "二", "三", "四", "五", "六", "日"];
 
   function load() {
     try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); }
-    catch { return {}; }
+    catch (e) { return {}; }
   }
   function save(data) {
     try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch (e) {}
   }
+  function todayId() { return ((new Date().getDay() + 6) % 7) + 1; }
+  function esc(t) {
+    return String(t).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+  function doneCount(c) {
+    return (c.diet ? 1 : 0) + (c.ex ? 1 : 0) + (c.med ? 1 : 0);
+  }
 
   let state = load();
+  let cur = todayId();
 
-  const TAB = ["一","二","三","四","五","六","日"];
-  let cur = ((new Date().getDay() + 6) % 7) + 1;
-  function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
   function renderTabs() {
-    document.getElementById("tabs").innerHTML = DAYS.map(d => {
-      const c = state["d"+d.id] || {};
-      const done = c.med && c.ex && c.diet;
-      return `<button type="button" data-d="${d.id}" class="${d.id===cur?"on":""} ${done?"done":""}" aria-label="${d.title}">${TAB[d.id-1]}</button>`;
+    document.getElementById("tabs").innerHTML = DAYS.map(function (d) {
+      const c = state["d" + d.id] || {};
+      const n = doneCount(c);
+      const cls = (d.id === cur ? "on" : "") + (n === 3 ? " done" : n ? " partial" : "");
+      const status = n === 3 ? "已完成" : (n ? "完成 " + n + "/3" : "未打卡");
+      return '<button type="button" role="tab" aria-selected="' + (d.id === cur ? "true" : "false") + '" data-d="' + d.id + '" class="' + cls + '" aria-label="' + d.title + "，" + status + '">' + TAB[d.id - 1] + "</button>";
     }).join("");
-    document.querySelectorAll("#tabs button").forEach(b => b.addEventListener("click", () => { cur = +b.dataset.d; render(); window.scrollTo(0,0); }));
-  }
-  function render() {
-    const d = DAYS[cur-1];
-    const k = "d" + d.id;
-    const c = state[k] || {};
-    document.getElementById("planTitle").textContent = "七日計劃 · " + d.title;
-    root.innerHTML = `
-      <article class="day" data-day="${d.id}">
-        <div class="day-head"><strong>第 ${d.id} 天 · ${d.title}</strong></div>
-        <div class="day-body">
-          <h3 style="margin-top:0">飲食</h3>
-          <div class="meal">
-            <div class="meal-row"><span class="k">早餐</span><span>${d.meals.b}</span></div>
-            <div class="meal-row"><span class="k">午餐</span><span>${d.meals.l}</span></div>
-            <div class="meal-row"><span class="k">晚餐</span><span>${d.meals.d}</span></div>
-            <div class="meal-row"><span class="k">小食</span><span>${d.meals.s}</span></div>
-          </div>
-          <h3>運動</h3>
-          <div class="ex"><span class="mins">約 ${d.mins} 分鐘</span><span class="tag">${d.exercise}</span>${d.exerciseHtml}</div>
-          <h3>服藥</h3>
-          <div class="ex">依醫囑服用已處方藥物；未有處方則記錄「待醫生確認」。藥物資料可在主頁「藥物記錄」填寫。</div>
-          <h3>今日打卡</h3>
-          <div class="checks big">
-            <label><input type="checkbox" data-k="${k}" data-f="diet" ${c.diet ? "checked" : ""}> 飲食達標</label>
-            <label><input type="checkbox" data-k="${k}" data-f="ex" ${c.ex ? "checked" : ""}> 運動完成</label>
-            <label><input type="checkbox" data-k="${k}" data-f="med" ${c.med ? "checked" : ""}> 服藥／確認狀態</label>
-          </div>
-          <div style="margin-top:10px;">
-            <label for="note${d.id}" style="font-size:0.85rem;color:var(--muted);">當日備註（副作用／飲食偏離等）</label>
-            <textarea id="note${d.id}" data-persist-day="${k}" placeholder="選填">${esc(c.note || "")}</textarea>
-          </div>
-        </div>
-      </article>`;
-    root.querySelectorAll('input[type="checkbox"]').forEach(el => {
-      el.addEventListener("change", () => {
-        const k = el.getAttribute("data-k");
-        state[k] = state[k] || {};
-        state[k][el.getAttribute("data-f")] = el.checked;
-        save(state);
-        updateProgress(); renderTabs();
+    document.querySelectorAll("#tabs button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        cur = +b.dataset.d;
+        render();
+        window.scrollTo(0, 0);
       });
     });
-    root.querySelectorAll("textarea[data-persist-day]").forEach(el => {
-      el.addEventListener("input", () => {
-        const k = el.getAttribute("data-persist-day");
-        state[k] = state[k] || {};
-        state[k].note = el.value;
+  }
+
+  function render() {
+    const d = DAYS[cur - 1];
+    const k = "d" + d.id;
+    const c = state[k] || {};
+    document.getElementById("planTitle").textContent = (d.id === todayId() ? "今天 · " : "") + d.title;
+    root.innerHTML =
+      '<article class="day" data-day="' + d.id + '">' +
+        '<div class="day-head"><strong>第 ' + d.id + " 天 · " + esc(d.title) + "</strong></div>" +
+        '<div class="day-body">' +
+          '<h3 style="margin-top:0">飲食</h3>' +
+          '<div class="meal">' +
+            '<div class="meal-row"><span class="k">早餐</span><span>' + esc(d.meals.b) + "</span></div>" +
+            '<div class="meal-row"><span class="k">午餐</span><span>' + esc(d.meals.l) + "</span></div>" +
+            '<div class="meal-row"><span class="k">晚餐</span><span>' + esc(d.meals.d) + "</span></div>" +
+            '<div class="meal-row"><span class="k">小食</span><span>' + esc(d.meals.s) + "</span></div>" +
+          "</div>" +
+          "<h3>運動</h3>" +
+          '<div class="ex"><span class="mins">約 ' + d.mins + ' 分鐘</span><span class="tag">' + esc(d.exercise) + "</span>" + d.exerciseHtml + "</div>" +
+          "<h3>用藥</h3>" +
+          '<div class="ex">目前優先做生活方式。<strong>是否用藥待醫生決定。</strong>若已有處方，依醫囑服用。藥物狀態可在總覽頁填寫。</div>' +
+          "<h3>今日打卡</h3>" +
+          '<div class="checks big">' +
+            '<label><input type="checkbox" data-k="' + k + '" data-f="diet"' + (c.diet ? " checked" : "") + "> 飲食達標</label>" +
+            '<label><input type="checkbox" data-k="' + k + '" data-f="ex"' + (c.ex ? " checked" : "") + "> 運動完成</label>" +
+            '<label><input type="checkbox" data-k="' + k + '" data-f="med"' + (c.med ? " checked" : "") + "> 用藥狀態已核對</label>" +
+          "</div>" +
+          '<div style="margin-top:12px">' +
+            '<label class="field" for="note' + d.id + '">當日備註</label>' +
+            '<textarea id="note' + d.id + '" data-persist-day="' + k + '" placeholder="選填：飲食有沒有偏離、身體感覺">' + esc(c.note || "") + "</textarea>" +
+          "</div>" +
+        "</div>" +
+      "</article>";
+
+    root.querySelectorAll('input[type="checkbox"]').forEach(function (el) {
+      el.addEventListener("change", function () {
+        const kk = el.getAttribute("data-k");
+        state[kk] = state[kk] || {};
+        state[kk][el.getAttribute("data-f")] = el.checked;
+        save(state);
+        updateProgress();
+        renderTabs();
+      });
+    });
+    root.querySelectorAll("textarea[data-persist-day]").forEach(function (el) {
+      el.addEventListener("input", function () {
+        const kk = el.getAttribute("data-persist-day");
+        state[kk] = state[kk] || {};
+        state[kk].note = el.value;
         save(state);
       });
     });
@@ -773,87 +872,57 @@
   }
 
   function updateProgress() {
-    let total = DAYS.length * 3;
+    const total = DAYS.length * 3;
     let done = 0;
-    DAYS.forEach(d => {
-      const c = state["d" + d.id] || {};
-      if (c.med) done++;
-      if (c.ex) done++;
-      if (c.diet) done++;
-    });
+    DAYS.forEach(function (d) { done += doneCount(state["d" + d.id] || {}); });
     const pct = total ? Math.round(done / total * 100) : 0;
     document.getElementById("weekProgress").style.width = pct + "%";
+    document.getElementById("planProgress").style.width = pct + "%";
     const lbl = "本週清單完成度：" + pct + "%（" + done + "／" + total + " 項）";
     document.getElementById("weekProgressLabel").textContent = lbl;
-    document.getElementById("planProgress").style.width = pct + "%";
     document.getElementById("planProgressLabel").textContent = lbl;
+    document.getElementById("weekProgressBar").setAttribute("aria-valuenow", String(pct));
+    document.getElementById("planProgressBar").setAttribute("aria-valuenow", String(pct));
+    const today = state["d" + todayId()] || {};
+    const n = doneCount(today);
+    const todayBtn = document.getElementById("todayBtn");
+    todayBtn.textContent = n === 3 ? "今日已完成" : (n ? "今日 " + n + "/3" : "今日打卡");
+    const sub = document.getElementById("planEntrySub");
+    if (sub) sub.textContent = n === 3 ? "今日三項已打卡 · 仍可查看其他日子" : "每日飲食、運動、打卡 · 右上角可直接進入今日";
   }
 
-  // Persist medication fields
-  document.querySelectorAll("[data-persist]").forEach(el => {
+  document.querySelectorAll("[data-persist]").forEach(function (el) {
     const key = el.getAttribute("data-persist");
     if (state.fields && state.fields[key] != null) el.value = state.fields[key];
-    el.addEventListener("input", () => {
+    const onEdit = function () {
       state.fields = state.fields || {};
       state.fields[key] = el.value;
       save(state);
-    });
-    el.addEventListener("change", () => {
-      state.fields = state.fields || {};
-      state.fields[key] = el.value;
-      save(state);
+    };
+    el.addEventListener("input", onEdit);
+    el.addEventListener("change", onEdit);
+  });
+
+  document.querySelectorAll("[data-open-plan]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (btn.getAttribute("data-open-plan") === "today") cur = todayId();
+      if (location.hash === "#plan") render();
+      else location.hash = "#plan";
     });
   });
 
-
-  // Risk form
-  const RF = ["age","sex","sbp","bpmed","smoke","dm","fh","tc","ldl","hdl","tg"];
-  function num(id){const v=parseFloat(document.getElementById("rf_"+id).value);return isNaN(v)?null:v;}
-  function val(id){return document.getElementById("rf_"+id).value;}
-  function riskUpdate() {
-    const tc=num("tc"), hdl=num("hdl"), ldl=num("ldl"), tg=num("tg");
-    document.getElementById("rf_nonhdl").innerHTML = (tc!=null && hdl!=null)
-      ? "非 HDL 膽固醇（總膽固醇 − HDL）：<strong>" + (tc-hdl).toFixed(2) + " mmol/L</strong>（一般參考：&lt; 3.4 較理想）"
-      : "非 HDL 膽固醇（總膽固醇 − HDL）：輸入總膽固醇及 HDL 後顯示";
-    let lo = "LDL 分級：輸入 LDL 後顯示";
-    if (ldl!=null) {
-      let t,c;
-      if (ldl<2.6){t="理想";c="ok";} else if (ldl<3.4){t="接近理想";c="ok";}
-      else if (ldl<4.1){t="邊緣偏高";c="mid";} else if (ldl<4.9){t="偏高";c="hi";} else {t="甚高";c="hi";}
-      lo = "LDL 分級：<span class='lvl "+c+"'>"+t+"</span>";
-    }
-    document.getElementById("rf_ldlout").innerHTML = lo;
-    const f = [];
-    const age=num("age"), sex=val("sex"), sbp=num("sbp");
-    if (age!=null && ((sex==="m" && age>=45) || (sex==="f" && age>=55) || (!sex && age>=55))) f.push("年齡（男 ≥45／女 ≥55）");
-    if ((sbp!=null && sbp>=140) || val("bpmed")==="y") f.push("高血壓或服用降壓藥");
-    if (val("smoke")==="y") f.push("吸煙");
-    if (val("dm")==="y") f.push("糖尿病（屬高風險，須醫生評估）");
-    if (val("fh")==="y") f.push("早發心血管病家族史");
-    if (hdl!=null && hdl<1.0) f.push("HDL 偏低（&lt; 1.0）");
-    if (ldl!=null && ldl>=4.9) f.push("LDL 甚高（≥ 4.9）");
-    if (tg!=null && tg>=1.7) f.push("甘油三酯偏高（≥ 1.7）");
-    const prot = (hdl!=null && hdl>=1.6) ? "<br>保護因素：HDL ≥ 1.6（可抵消一項，但不能抵銷 LDL 偏高）" : "";
-    document.getElementById("rf_factors").innerHTML = "風險因素：<strong>" + f.length + " 項</strong>" +
-      (f.length ? "<ul class='clean'>" + f.map(x=>"<li>"+x+"</li>").join("") + "</ul>" : "（未有或資料未填）") + prot +
-      "<br><span style='color:var(--muted);font-size:.85rem'>因素越多，越需要盡早請醫生作正式風險評估。</span>";
-  }
-  RF.forEach(id => {
-    const el = document.getElementById("rf_"+id);
-    if (state.risk && state.risk[id] != null) el.value = state.risk[id];
-    const h = () => { state.risk = state.risk || {}; state.risk[id] = el.value; save(state); riskUpdate(); };
-    el.addEventListener("input", h); el.addEventListener("change", h);
-  });
-  riskUpdate();
-
-  // View switching (#plan)
   function route() {
-    const p = location.hash === "#plan";
-    document.body.classList.toggle("plan", p);
-    if (p) { render(); window.scrollTo(0,0); } else updateProgress();
+    const plan = location.hash === "#plan";
+    document.body.classList.toggle("plan", plan);
+    if (plan) {
+      render();
+      window.scrollTo(0, 0);
+    } else {
+      updateProgress();
+    }
   }
-  document.getElementById("openPlan").addEventListener("click", () => { location.hash = "#plan"; });
-  document.getElementById("backMain").addEventListener("click", () => {
+
+  document.getElementById("backMain").addEventListener("click", function () {
     location.hash = "#week";
   });
   window.addEventListener("hashchange", route);
